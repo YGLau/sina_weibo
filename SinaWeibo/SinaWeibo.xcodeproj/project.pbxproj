@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BC81CA136B900989FED /* AppDelegate.swift */; };
+		A49C5BCB1CA136B900989FED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BCA1CA136B900989FED /* ViewController.swift */; };
+		A49C5BD01CA136B900989FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A49C5BCF1CA136B900989FED /* Assets.xcassets */; };
+		A49C5BDE1CA136B900989FED /* SinaWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BDD1CA136B900989FED /* SinaWeiboTests.swift */; };
+		A49C5BE91CA136B900989FED /* SinaWeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BE81CA136B900989FED /* SinaWeiboUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A49C5BDA1CA136B900989FED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A49C5BBD1CA136B900989FED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A49C5BC41CA136B900989FED;
+			remoteInfo = SinaWeibo;
+		};
+		A49C5BE51CA136B900989FED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A49C5BBD1CA136B900989FED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A49C5BC41CA136B900989FED;
+			remoteInfo = SinaWeibo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A49C5BC51CA136B900989FED /* SinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A49C5BC81CA136B900989FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A49C5BCA1CA136B900989FED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A49C5BCF1CA136B900989FED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A49C5BD41CA136B900989FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A49C5BD91CA136B900989FED /* SinaWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinaWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A49C5BDD1CA136B900989FED /* SinaWeiboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinaWeiboTests.swift; sourceTree = "<group>"; };
+		A49C5BDF1CA136B900989FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A49C5BE41CA136B900989FED /* SinaWeiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinaWeiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A49C5BE81CA136B900989FED /* SinaWeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinaWeiboUITests.swift; sourceTree = "<group>"; };
+		A49C5BEA1CA136B900989FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A49C5BC21CA136B900989FED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A49C5BD61CA136B900989FED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A49C5BE11CA136B900989FED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A49C5BBC1CA136B900989FED = {
+			isa = PBXGroup;
+			children = (
+				A49C5BC71CA136B900989FED /* SinaWeibo */,
+				A49C5BDC1CA136B900989FED /* SinaWeiboTests */,
+				A49C5BE71CA136B900989FED /* SinaWeiboUITests */,
+				A49C5BC61CA136B900989FED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A49C5BC61CA136B900989FED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5BC51CA136B900989FED /* SinaWeibo.app */,
+				A49C5BD91CA136B900989FED /* SinaWeiboTests.xctest */,
+				A49C5BE41CA136B900989FED /* SinaWeiboUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A49C5BC71CA136B900989FED /* SinaWeibo */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5BC81CA136B900989FED /* AppDelegate.swift */,
+				A49C5BCA1CA136B900989FED /* ViewController.swift */,
+				A49C5BCF1CA136B900989FED /* Assets.xcassets */,
+				A49C5BD41CA136B900989FED /* Info.plist */,
+			);
+			path = SinaWeibo;
+			sourceTree = "<group>";
+		};
+		A49C5BDC1CA136B900989FED /* SinaWeiboTests */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5BDD1CA136B900989FED /* SinaWeiboTests.swift */,
+				A49C5BDF1CA136B900989FED /* Info.plist */,
+			);
+			path = SinaWeiboTests;
+			sourceTree = "<group>";
+		};
+		A49C5BE71CA136B900989FED /* SinaWeiboUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5BE81CA136B900989FED /* SinaWeiboUITests.swift */,
+				A49C5BEA1CA136B900989FED /* Info.plist */,
+			);
+			path = SinaWeiboUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A49C5BC41CA136B900989FED /* SinaWeibo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A49C5BED1CA136B900989FED /* Build configuration list for PBXNativeTarget "SinaWeibo" */;
+			buildPhases = (
+				A49C5BC11CA136B900989FED /* Sources */,
+				A49C5BC21CA136B900989FED /* Frameworks */,
+				A49C5BC31CA136B900989FED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SinaWeibo;
+			productName = SinaWeibo;
+			productReference = A49C5BC51CA136B900989FED /* SinaWeibo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A49C5BD81CA136B900989FED /* SinaWeiboTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A49C5BF01CA136B900989FED /* Build configuration list for PBXNativeTarget "SinaWeiboTests" */;
+			buildPhases = (
+				A49C5BD51CA136B900989FED /* Sources */,
+				A49C5BD61CA136B900989FED /* Frameworks */,
+				A49C5BD71CA136B900989FED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A49C5BDB1CA136B900989FED /* PBXTargetDependency */,
+			);
+			name = SinaWeiboTests;
+			productName = SinaWeiboTests;
+			productReference = A49C5BD91CA136B900989FED /* SinaWeiboTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A49C5BE31CA136B900989FED /* SinaWeiboUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A49C5BF31CA136B900989FED /* Build configuration list for PBXNativeTarget "SinaWeiboUITests" */;
+			buildPhases = (
+				A49C5BE01CA136B900989FED /* Sources */,
+				A49C5BE11CA136B900989FED /* Frameworks */,
+				A49C5BE21CA136B900989FED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A49C5BE61CA136B900989FED /* PBXTargetDependency */,
+			);
+			name = SinaWeiboUITests;
+			productName = SinaWeiboUITests;
+			productReference = A49C5BE41CA136B900989FED /* SinaWeiboUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A49C5BBD1CA136B900989FED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = liu;
+				TargetAttributes = {
+					A49C5BC41CA136B900989FED = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = CE33MW65T6;
+					};
+					A49C5BD81CA136B900989FED = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = CE33MW65T6;
+						TestTargetID = A49C5BC41CA136B900989FED;
+					};
+					A49C5BE31CA136B900989FED = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = CE33MW65T6;
+						TestTargetID = A49C5BC41CA136B900989FED;
+					};
+				};
+			};
+			buildConfigurationList = A49C5BC01CA136B900989FED /* Build configuration list for PBXProject "SinaWeibo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A49C5BBC1CA136B900989FED;
+			productRefGroup = A49C5BC61CA136B900989FED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A49C5BC41CA136B900989FED /* SinaWeibo */,
+				A49C5BD81CA136B900989FED /* SinaWeiboTests */,
+				A49C5BE31CA136B900989FED /* SinaWeiboUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A49C5BC31CA136B900989FED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A49C5BD01CA136B900989FED /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A49C5BD71CA136B900989FED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A49C5BE21CA136B900989FED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A49C5BC11CA136B900989FED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A49C5BCB1CA136B900989FED /* ViewController.swift in Sources */,
+				A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A49C5BD51CA136B900989FED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A49C5BDE1CA136B900989FED /* SinaWeiboTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A49C5BE01CA136B900989FED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A49C5BE91CA136B900989FED /* SinaWeiboUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A49C5BDB1CA136B900989FED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A49C5BC41CA136B900989FED /* SinaWeibo */;
+			targetProxy = A49C5BDA1CA136B900989FED /* PBXContainerItemProxy */;
+		};
+		A49C5BE61CA136B900989FED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A49C5BC41CA136B900989FED /* SinaWeibo */;
+			targetProxy = A49C5BE51CA136B900989FED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A49C5BEB1CA136B900989FED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A49C5BEC1CA136B900989FED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A49C5BEE1CA136B900989FED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				INFOPLIST_FILE = SinaWeibo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeibo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A49C5BEF1CA136B900989FED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				INFOPLIST_FILE = SinaWeibo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeibo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A49C5BF11CA136B900989FED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SinaWeiboTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeiboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinaWeibo.app/SinaWeibo";
+			};
+			name = Debug;
+		};
+		A49C5BF21CA136B900989FED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SinaWeiboTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeiboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinaWeibo.app/SinaWeibo";
+			};
+			name = Release;
+		};
+		A49C5BF41CA136B900989FED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SinaWeiboUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeiboUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SinaWeibo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		A49C5BF51CA136B900989FED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SinaWeiboUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeiboUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SinaWeibo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A49C5BC01CA136B900989FED /* Build configuration list for PBXProject "SinaWeibo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A49C5BEB1CA136B900989FED /* Debug */,
+				A49C5BEC1CA136B900989FED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A49C5BED1CA136B900989FED /* Build configuration list for PBXNativeTarget "SinaWeibo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A49C5BEE1CA136B900989FED /* Debug */,
+				A49C5BEF1CA136B900989FED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A49C5BF01CA136B900989FED /* Build configuration list for PBXNativeTarget "SinaWeiboTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A49C5BF11CA136B900989FED /* Debug */,
+				A49C5BF21CA136B900989FED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A49C5BF31CA136B900989FED /* Build configuration list for PBXNativeTarget "SinaWeiboUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A49C5BF41CA136B900989FED /* Debug */,
+				A49C5BF51CA136B900989FED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A49C5BBD1CA136B900989FED /* Project object */;
+}
