@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BC81CA136B900989FED /* AppDelegate.swift */; };
-		A49C5BCB1CA136B900989FED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BCA1CA136B900989FED /* ViewController.swift */; };
 		A49C5BD01CA136B900989FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A49C5BCF1CA136B900989FED /* Assets.xcassets */; };
 		A49C5BDE1CA136B900989FED /* SinaWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BDD1CA136B900989FED /* SinaWeiboTests.swift */; };
 		A49C5BE91CA136B900989FED /* SinaWeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BE81CA136B900989FED /* SinaWeiboUITests.swift */; };
+		A49C5C051CA13F1100989FED /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C041CA13F1100989FED /* MainViewController.swift */; };
+		A49C5C071CA13F4C00989FED /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C061CA13F4C00989FED /* HomeTableViewController.swift */; };
+		A49C5C091CA13F6800989FED /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C081CA13F6800989FED /* DiscoverTableViewController.swift */; };
+		A49C5C0B1CA13F7A00989FED /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C0A1CA13F7A00989FED /* MessageTableViewController.swift */; };
+		A49C5C0D1CA13F8400989FED /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C0C1CA13F8400989FED /* ProfileTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +38,6 @@
 /* Begin PBXFileReference section */
 		A49C5BC51CA136B900989FED /* SinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49C5BC81CA136B900989FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A49C5BCA1CA136B900989FED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A49C5BCF1CA136B900989FED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A49C5BD41CA136B900989FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A49C5BD91CA136B900989FED /* SinaWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinaWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +46,11 @@
 		A49C5BE41CA136B900989FED /* SinaWeiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinaWeiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49C5BE81CA136B900989FED /* SinaWeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinaWeiboUITests.swift; sourceTree = "<group>"; };
 		A49C5BEA1CA136B900989FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A49C5C041CA13F1100989FED /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A49C5C061CA13F4C00989FED /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		A49C5C081CA13F6800989FED /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		A49C5C0A1CA13F7A00989FED /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		A49C5C0C1CA13F8400989FED /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				A49C5BC81CA136B900989FED /* AppDelegate.swift */,
-				A49C5BCA1CA136B900989FED /* ViewController.swift */,
+				A49C5BF61CA13CD600989FED /* Classes */,
 				A49C5BCF1CA136B900989FED /* Assets.xcassets */,
 				A49C5BD41CA136B900989FED /* Info.plist */,
 			);
@@ -117,6 +125,74 @@
 				A49C5BEA1CA136B900989FED /* Info.plist */,
 			);
 			path = SinaWeiboUITests;
+			sourceTree = "<group>";
+		};
+		A49C5BF61CA13CD600989FED /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5BF71CA13CD600989FED /* Common */,
+				A49C5BF81CA13CD600989FED /* Discover */,
+				A49C5BF91CA13CD600989FED /* Home */,
+				A49C5BFA1CA13CD600989FED /* Main */,
+				A49C5BFB1CA13CD600989FED /* Message */,
+				A49C5BFC1CA13CD600989FED /* Profile */,
+				A49C5BFD1CA13CD600989FED /* Tool */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A49C5BF71CA13CD600989FED /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A49C5BF81CA13CD600989FED /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5C081CA13F6800989FED /* DiscoverTableViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		A49C5BF91CA13CD600989FED /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5C061CA13F4C00989FED /* HomeTableViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A49C5BFA1CA13CD600989FED /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5C041CA13F1100989FED /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A49C5BFB1CA13CD600989FED /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5C0A1CA13F7A00989FED /* MessageTableViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		A49C5BFC1CA13CD600989FED /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A49C5C0C1CA13F8400989FED /* ProfileTableViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A49C5BFD1CA13CD600989FED /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +327,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A49C5BCB1CA136B900989FED /* ViewController.swift in Sources */,
+				A49C5C0D1CA13F8400989FED /* ProfileTableViewController.swift in Sources */,
+				A49C5C071CA13F4C00989FED /* HomeTableViewController.swift in Sources */,
+				A49C5C051CA13F1100989FED /* MainViewController.swift in Sources */,
+				A49C5C0B1CA13F7A00989FED /* MessageTableViewController.swift in Sources */,
+				A49C5C091CA13F6800989FED /* DiscoverTableViewController.swift in Sources */,
 				A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SinaWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeibo;
@@ -387,7 +467,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SinaWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeibo;
