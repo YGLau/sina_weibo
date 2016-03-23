@@ -30,11 +30,28 @@ class MainViewController: UITabBarController {
             {
                 addChildViewController("HomeTableViewController", title: "首页", imageName: "tabbar_home")
                 addChildViewController("MessageTableViewController", title: "消息", imageName: "tabbar_message_center")
+                addChildViewController("NullViewController", title: "", imageName: "")
                 addChildViewController("DiscoverTableViewController", title: "广场", imageName: "tabbar_discover")
                 addChildViewController("ProfileTableViewController", title: "我", imageName: "tabbar_profile")
             }
             
         }
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // 设置加号按钮
+        setupComposeBtn()
+        
+    }
+    
+    private func setupComposeBtn() {
+        tabBar.addSubview(composeBtn)
+        // 布局 compose的位置和尺寸
+        let width = UIScreen.mainScreen().bounds.size.width / (CGFloat)(viewControllers!.count)
+        let rect = CGRect(x: 0, y: 0, width: width, height: 49)
+        composeBtn.frame = CGRectOffset(rect, 2 * width, 0)
     }
     /**
      初始化子控制器
@@ -66,6 +83,24 @@ class MainViewController: UITabBarController {
         nav.addChildViewController(vc)
         // 3.将导航控制添加到当前控制器上
         addChildViewController(nav)
+    }
+    
+    // MARK: - 懒加载
+    private lazy var composeBtn: UIButton = {
+        let btn = UIButton()
+        // 设置图片
+        btn.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: UIControlState.Normal)
+        btn.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
+        // 设置背景图片
+        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
+        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
+        // 添加监听
+        btn.addTarget(self, action: "addBtnClick", forControlEvents: UIControlEvents.TouchUpInside)
+        return btn
+    }()
+    // MARK: - 加号按钮点击
+    func addBtnClick() {
+        print(__FUNCTION__)
     }
 
 }
