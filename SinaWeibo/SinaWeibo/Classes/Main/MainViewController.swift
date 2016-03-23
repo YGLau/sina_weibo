@@ -14,31 +14,12 @@ class MainViewController: UITabBarController {
         
         tabBar.tintColor = UIColor.orangeColor()
         
-//        // 1.创建首页
-//        let home = HomeTableViewController()
-//        // 1.1 设置首页 tabbar对应的数据
-//        home.tabBarItem.image = UIImage(named: "tabbar_home")
-//        home.tabBarItem.selectedImage = UIImage(named: "tabbar_home_highlighted")
-//        home.tabBarItem.title = "首页"
-//        
-//        home.navigationItem.title = "首页"
-//        // 2.给首页包装一个导航控制器
-//        let nav = UINavigationController()
-//        nav.addChildViewController(home)
-//        // 3.将导航控制添加到当前控制器上
-//        addChildViewController(nav)
-//        
-//        let message = MessageTableViewController()
-//        message.tabBarItem.image = UIImage(named: "tabbar_message_center")
-//        message.tabBarItem.selectedImage = UIImage(named: "tabbar_message_center_highlighted")
-//        message.tabBarItem.title = "消息"
-//        let nav2 = UINavigationController()
-//        nav2.addChildViewController(message)
-//        addChildViewController(nav2)
-        addChildViewController(HomeTableViewController(), title: "首页", imageName: "tabbar_home")
-        addChildViewController(MessageTableViewController(), title: "消息", imageName: "tabbar_message_center")
-        addChildViewController(DiscoverTableViewController(), title: "广场", imageName: "tabbar_discover")
-        addChildViewController(ProfileTableViewController(), title: "我", imageName: "tabbar_profile")
+        addChildViewController("HomeTableViewController", title: "首页", imageName: "tabbar_home")
+        addChildViewController("MessageTableViewController", title: "消息", imageName: "tabbar_message_center")
+        addChildViewController("DiscoverTableViewController", title: "广场", imageName: "tabbar_discover")
+        addChildViewController("ProfileTableViewController", title: "我", imageName: "tabbar_profile")
+        
+        
         
         
     }
@@ -49,17 +30,27 @@ class MainViewController: UITabBarController {
      - parameter title:           控制器标题
      - parameter imageName:       控制器图片名称
      */
-    private func addChildViewController(childController: UIViewController, title:String, imageName:String) {
+    private func addChildViewController(childControllerName: String, title:String, imageName:String) {
+        
+        // 0 创建控制器
+//        let cls:AnyClass? = NSClassFromString(childControllerName)
+        let ns = NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"] as! String
+        
+        let cls:AnyClass? = NSClassFromString(ns + "." + childControllerName)
+        
+        let vcCls = cls as! UIViewController.Type
+        
+        let vc = vcCls.init()
         
         // 1.1 设置首页 tabbar对应的数据
-        childController.tabBarItem.image = UIImage(named: imageName)
-        childController.tabBarItem.selectedImage = UIImage(named: imageName + "_highlighted")
-        childController.title = title
+        vc.tabBarItem.image = UIImage(named: imageName)
+        vc.tabBarItem.selectedImage = UIImage(named: imageName + "_highlighted")
+        vc.title = title
         
 //        childController.navigationItem.title = title
         // 2.给首页包装一个导航控制器
         let nav = UINavigationController()
-        nav.addChildViewController(childController)
+        nav.addChildViewController(vc)
         // 3.将导航控制添加到当前控制器上
         addChildViewController(nav)
     }
