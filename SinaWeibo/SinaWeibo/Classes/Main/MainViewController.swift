@@ -14,14 +14,27 @@ class MainViewController: UITabBarController {
         
         tabBar.tintColor = UIColor.orangeColor()
         
-        addChildViewController("HomeTableViewController", title: "首页", imageName: "tabbar_home")
-        addChildViewController("MessageTableViewController", title: "消息", imageName: "tabbar_message_center")
-        addChildViewController("DiscoverTableViewController", title: "广场", imageName: "tabbar_discover")
-        addChildViewController("ProfileTableViewController", title: "我", imageName: "tabbar_profile")
-        
-        
-        
-        
+        // 1.创建 json 文件路径
+        let filePath = NSBundle.mainBundle().pathForResource("MainVCSettings.json", ofType: nil)
+        // 2.通过路径创建 NSData
+        if let jsonPath = filePath {
+            let jsonData = NSData(contentsOfFile: jsonPath)
+            // 3.序列化 json
+            do{
+                let dictArr = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers)
+                // 4.遍历数组, 动态创建控制器
+                for dict in dictArr as! [[String : String]]{
+                    addChildViewController(dict["vcName"]!, title: dict["title"]!, imageName: dict["imageName"]!)
+                }
+            }catch
+            {
+                addChildViewController("HomeTableViewController", title: "首页", imageName: "tabbar_home")
+                addChildViewController("MessageTableViewController", title: "消息", imageName: "tabbar_message_center")
+                addChildViewController("DiscoverTableViewController", title: "广场", imageName: "tabbar_discover")
+                addChildViewController("ProfileTableViewController", title: "我", imageName: "tabbar_profile")
+            }
+            
+        }
     }
     /**
      初始化子控制器
