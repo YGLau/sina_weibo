@@ -11,8 +11,8 @@ import UIKit
 class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
-        
-        tabBar.tintColor = UIColor.orangeColor()
+//        
+//        tabBar.tintColor = UIColor.orangeColor()
         
         // 1.创建 json 文件路径
         let filePath = NSBundle.mainBundle().pathForResource("MainVCSettings.json", ofType: nil)
