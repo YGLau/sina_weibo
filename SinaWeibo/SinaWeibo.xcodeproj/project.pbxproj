@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A425B3731CA3D43D00584784 /* QRCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */; };
+		A425B3751CA3D9A100584784 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A425B3741CA3D9A100584784 /* QRCodeViewController.swift */; };
 		A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44100771CA2B5BC0076C374 /* titleButton.swift */; };
 		A451EA2C1CA2335F009320F0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = A451EA2A1CA2335F009320F0 /* MainVCSettings.json */; };
 		A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451EA2B1CA2335F009320F0 /* NullViewController.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCodeViewController.storyboard; sourceTree = "<group>"; };
+		A425B3741CA3D9A100584784 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		A44100771CA2B5BC0076C374 /* titleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = titleButton.swift; sourceTree = "<group>"; };
 		A451EA2A1CA2335F009320F0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		A451EA2B1CA2335F009320F0 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A425B3711CA3D41000584784 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */,
+				A425B3741CA3D9A100584784 /* QRCodeViewController.swift */,
+			);
+			name = QRCode;
+			sourceTree = "<group>";
+		};
 		A451EA291CA2335F009320F0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +216,7 @@
 		A49C5BF91CA13CD600989FED /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A425B3711CA3D41000584784 /* QRCode */,
 				A478811C1CA38565005D3193 /* Popover */,
 				A49C5C061CA13F4C00989FED /* HomeTableViewController.swift */,
 			);
@@ -354,6 +368,7 @@
 				A478811E1CA3859E005D3193 /* PopoverViewController.storyboard in Resources */,
 				A451EA2C1CA2335F009320F0 /* MainVCSettings.json in Resources */,
 				A49C5BD01CA136B900989FED /* Assets.xcassets in Resources */,
+				A425B3731CA3D43D00584784 /* QRCodeViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +395,7 @@
 			files = (
 				A49C5C0D1CA13F8400989FED /* ProfileTableViewController.swift in Sources */,
 				A49C5C071CA13F4C00989FED /* HomeTableViewController.swift in Sources */,
+				A425B3751CA3D9A100584784 /* QRCodeViewController.swift in Sources */,
 				A47881201CA3879D005D3193 /* PopoverViewController.swift in Sources */,
 				A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */,
 				A451EA2F1CA246ED009320F0 /* BaseTableViewController.swift in Sources */,
