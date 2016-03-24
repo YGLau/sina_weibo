@@ -24,7 +24,21 @@ class HomeTableViewController: BaseTableViewController {
         // 设置导航条
         setupNav()
         
+        // 监听通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationChange", name: PopoverAnimatorWillShow, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationChange", name: PopoverAnimatorWillDismiss, object: nil)
         
+    }
+    
+    func notificationChange() {
+        //修改按钮的状态
+        let titleBtn = navigationItem.titleView as! titleButton
+        titleBtn.selected = !titleBtn.selected
+    }
+    
+    deinit {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     private func setupNav() {
         // 设置导航条的未登录按钮

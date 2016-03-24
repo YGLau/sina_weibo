@@ -8,6 +8,10 @@
 
 import UIKit
 
+// 定义通知
+let PopoverAnimatorWillShow = "PopoverAnimatorWillShow"
+let PopoverAnimatorWillDismiss = "PopoverAnimatorWillDismiss"
+
 class PopoverAnimator: NSObject, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
     // 定义一个变量保存当前是否展开
@@ -34,12 +38,15 @@ class PopoverAnimator: NSObject, UIViewControllerTransitioningDelegate, UIViewCo
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         isPresented = true
+        // 发通知
+        NSNotificationCenter.defaultCenter().postNotificationName(PopoverAnimatorWillShow, object: self, userInfo: nil)
         return self
     }
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresented = false
-        
+        // 发通知
+        NSNotificationCenter.defaultCenter().postNotificationName(PopoverAnimatorWillDismiss, object: self)
         return self
     }
     
