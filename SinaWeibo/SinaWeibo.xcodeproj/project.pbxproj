@@ -15,6 +15,7 @@
 		A478811E1CA3859E005D3193 /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A478811D1CA3859E005D3193 /* PopoverViewController.storyboard */; };
 		A47881201CA3879D005D3193 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478811F1CA3879D005D3193 /* PopoverViewController.swift */; };
 		A47881221CA38E30005D3193 /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47881211CA38E30005D3193 /* PopoverPresentationController.swift */; };
+		A47881241CA3C3C0005D3193 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47881231CA3C3C0005D3193 /* PopoverAnimator.swift */; };
 		A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BC81CA136B900989FED /* AppDelegate.swift */; };
 		A49C5BD01CA136B900989FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A49C5BCF1CA136B900989FED /* Assets.xcassets */; };
 		A49C5BDE1CA136B900989FED /* SinaWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5BDD1CA136B900989FED /* SinaWeiboTests.swift */; };
@@ -54,6 +55,7 @@
 		A478811D1CA3859E005D3193 /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
 		A478811F1CA3879D005D3193 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		A47881211CA38E30005D3193 /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
+		A47881231CA3C3C0005D3193 /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		A49C5BC51CA136B900989FED /* SinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49C5BC81CA136B900989FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A49C5BCF1CA136B900989FED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				A478811D1CA3859E005D3193 /* PopoverViewController.storyboard */,
 				A478811F1CA3879D005D3193 /* PopoverViewController.swift */,
 				A47881211CA38E30005D3193 /* PopoverPresentationController.swift */,
+				A47881231CA3C3C0005D3193 /* PopoverAnimator.swift */,
 			);
 			name = Popover;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				A4E6DEC41CA26CB9008B3E45 /* UIView+AutoLayout.swift in Sources */,
 				A49C5C091CA13F6800989FED /* DiscoverTableViewController.swift in Sources */,
 				A451EA311CA247DE009320F0 /* VisitorView.swift in Sources */,
+				A47881241CA3C3C0005D3193 /* PopoverAnimator.swift in Sources */,
 				A4E6DEC61CA294C5008B3E45 /* UIBarButtonItem+category.swift in Sources */,
 				A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */,
 				A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */,

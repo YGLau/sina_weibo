@@ -10,7 +10,8 @@ import UIKit
 
 class PopoverPresentationController: UIPresentationController {
     
-    
+    // 定义属性保存菜单的大小
+    var presentFrame = CGRectZero
     /**
      初始化方法, 用于创建负责转场动画的对象
      
@@ -25,8 +26,15 @@ class PopoverPresentationController: UIPresentationController {
     
     override func containerViewWillLayoutSubviews() {
         
+        // 修改弹出视图的大小
+        if presentFrame == CGRectZero
+        {
+            presentedView()?.frame = CGRectMake(100, 56, 200, 300)
+            
+        } else {
+            presentedView()?.frame = presentFrame
+        }
         
-        presentedView()?.frame = CGRectMake(100, 56, 200, 300)
         
         containerView?.insertSubview(coverView, atIndex: 0)
     }
