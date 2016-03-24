@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="49" id="6lX-HX-8sy"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="二维码" image="qrcode_tabbar_icon_qrcode" selectedImage="qrcode_tabbar_icon_qrcode_highlighted" id="rLk-bi-dJf" userLabel="二维码"/>
+                                    <tabBarItem tag="1" title="二维码" image="qrcode_tabbar_icon_qrcode" selectedImage="qrcode_tabbar_icon_qrcode_highlighted" id="rLk-bi-dJf" userLabel="二维码"/>
                                     <tabBarItem title="条形码" image="qrcode_tabbar_icon_barcode" selectedImage="qrcode_tabbar_icon_barcode_highlighted" id="oOK-Fb-zxy"/>
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,14 +32,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esM-LO-KiI" userLabel="中间容器">
                                 <rect key="frame" x="150" y="150" width="300" height="300"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="8XY-Dt-PMg">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="8XY-Dt-PMg" userLabel="边框">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="hqS-fF-auL">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="hqS-fF-auL" userLabel="冲击波">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="hqS-fF-auL" firstAttribute="centerX" secondItem="esM-LO-KiI" secondAttribute="centerX" id="0OK-C5-Rwh"/>
                                     <constraint firstAttribute="bottom" secondItem="8XY-Dt-PMg" secondAttribute="bottom" id="1QI-Jm-d0j"/>
@@ -54,7 +54,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="esM-LO-KiI" firstAttribute="centerX" secondItem="Cei-dP-SBI" secondAttribute="centerX" id="7NY-28-w1I"/>
                             <constraint firstItem="lfn-0H-tWK" firstAttribute="leading" secondItem="Cei-dP-SBI" secondAttribute="leading" id="KS3-F1-Qwe"/>
@@ -72,7 +72,10 @@
                         <barButtonItem key="rightBarButtonItem" title="相册" id="qZl-9I-l4i"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="containerHeightCons" destination="kfe-nN-OTH" id="pnx-dt-9NQ"/>
                         <outlet property="customTabBar" destination="lfn-0H-tWK" id="4hv-QM-c8d"/>
+                        <outlet property="scanLineTopCons" destination="kAT-mz-hKi" id="o00-E2-c22"/>
+                        <outlet property="scanLineView" destination="hqS-fF-auL" id="bmf-Yo-7mN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qy1-9S-8fs" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -66,7 +66,7 @@ class HomeTableViewController: BaseTableViewController {
         let vc = sb.instantiateInitialViewController()
         
         // 让PopoverAnimator对象成为代理
-        vc?.transitioningDelegate = popoverAnimator
+//        vc?.transitioningDelegate = popoverAnimator
         // 自定义 modal 样式
         vc?.modalPresentationStyle = UIModalPresentationStyle.Custom
         presentViewController(vc!, animated: true, completion: nil)
@@ -85,12 +85,12 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     // Mark: - 懒加载
-    private lazy var popoverAnimator:PopoverAnimator = {
-        let pa = PopoverAnimator()
-        pa.presentFrame = CGRect(x: 100, y: 56, width: 200, height: 300)
-        
-        return pa
-    }()
+//    private lazy var popoverAnimator:PopoverAnimator = {
+//        let pa = PopoverAnimator()
+//        pa.presentFrame = CGRect(x: 100, y: 56, width: 200, height: 300)
+//        
+//        return pa
+//    }()
     
 
 }
