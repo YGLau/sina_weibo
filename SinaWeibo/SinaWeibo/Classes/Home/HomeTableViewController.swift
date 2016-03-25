@@ -51,7 +51,7 @@ class HomeTableViewController: BaseTableViewController {
 
     private lazy var titleView:titleButton = {
         let titleBtn = titleButton()
-        titleBtn.setTitle("首页标题", forState: UIControlState.Normal)
+        titleBtn.setTitle("首页标题 ", forState: UIControlState.Normal)
         
         titleBtn.addTarget(self, action: "titleBtnClick:", forControlEvents: UIControlEvents.TouchUpInside)
         
