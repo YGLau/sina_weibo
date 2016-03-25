@@ -20,9 +20,16 @@ class QRCodeViewController: UIViewController, UITabBarDelegate {
     }
     /// 冲击波顶部约束
     @IBOutlet weak var scanLineTopCons: NSLayoutConstraint!
+    
+    /// 我的名片
+    @IBAction func myCardBtnClick(sender: AnyObject) {
+        // push 到名片控制器
+        let QRVc = QRCodeCardViewController()
+        navigationController?.pushViewController(QRVc, animated: true)
+        
+    }
+    
     /// 底部 TabBar
-
-
     @IBOutlet weak var customTabBar: UITabBar!
     
     override func viewDidLoad() {
@@ -35,14 +42,14 @@ class QRCodeViewController: UIViewController, UITabBarDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         // view 即将出现时执行动画
         startAnimation()
+        
+        // 开始扫描
+        startScan()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK: - UITabBarDelegate
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
@@ -58,8 +65,6 @@ class QRCodeViewController: UIViewController, UITabBarDelegate {
         // 开始动画
         startAnimation()
         
-        // 开始扫描
-        startScan()
     }
     /**
      冲击波动画

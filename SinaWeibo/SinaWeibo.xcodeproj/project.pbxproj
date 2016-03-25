@@ -10,6 +10,8 @@
 		A425B3731CA3D43D00584784 /* QRCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */; };
 		A425B3751CA3D9A100584784 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A425B3741CA3D9A100584784 /* QRCodeViewController.swift */; };
 		A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44100771CA2B5BC0076C374 /* titleButton.swift */; };
+		A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */; };
+		A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B31CA51C5A004595FC /* TestViewController.swift */; };
 		A451EA2C1CA2335F009320F0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = A451EA2A1CA2335F009320F0 /* MainVCSettings.json */; };
 		A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451EA2B1CA2335F009320F0 /* NullViewController.swift */; };
 		A451EA2F1CA246ED009320F0 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451EA2E1CA246ED009320F0 /* BaseTableViewController.swift */; };
@@ -52,6 +54,8 @@
 		A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCodeViewController.storyboard; sourceTree = "<group>"; };
 		A425B3741CA3D9A100584784 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		A44100771CA2B5BC0076C374 /* titleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = titleButton.swift; sourceTree = "<group>"; };
+		A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCardViewController.swift; sourceTree = "<group>"; };
+		A44BF7B31CA51C5A004595FC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		A451EA2A1CA2335F009320F0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		A451EA2B1CA2335F009320F0 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 		A451EA2E1CA246ED009320F0 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewController.swift; path = ../Common/BaseTableViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			children = (
 				A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */,
 				A425B3741CA3D9A100584784 /* QRCodeViewController.swift */,
+				A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */,
+				A44BF7B31CA51C5A004595FC /* TestViewController.swift */,
 			);
 			name = QRCode;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				A47881201CA3879D005D3193 /* PopoverViewController.swift in Sources */,
 				A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */,
 				A451EA2F1CA246ED009320F0 /* BaseTableViewController.swift in Sources */,
+				A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */,
 				A49C5C051CA13F1100989FED /* MainViewController.swift in Sources */,
 				A49C5C0B1CA13F7A00989FED /* MessageTableViewController.swift in Sources */,
 				A4E6DEC41CA26CB9008B3E45 /* UIView+AutoLayout.swift in Sources */,
@@ -408,6 +415,7 @@
 				A4E6DEC61CA294C5008B3E45 /* UIBarButtonItem+category.swift in Sources */,
 				A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */,
 				A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */,
+				A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */,
 				A47881221CA38E30005D3193 /* PopoverPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

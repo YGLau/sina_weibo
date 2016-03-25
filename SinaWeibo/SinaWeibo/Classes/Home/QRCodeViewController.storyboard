@@ -53,13 +53,25 @@
                                     <constraint firstAttribute="trailing" secondItem="8XY-Dt-PMg" secondAttribute="trailing" id="lfr-Yk-2gW"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkM-N6-f1i">
+                                <rect key="frame" x="264" y="458" width="72" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="我的名片" backgroundImage="qrcode_button_background">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="myCardBtnClick:" destination="dkO-Td-qv6" eventType="touchUpInside" id="NYm-mJ-ngo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="esM-LO-KiI" firstAttribute="centerX" secondItem="Cei-dP-SBI" secondAttribute="centerX" id="7NY-28-w1I"/>
                             <constraint firstItem="lfn-0H-tWK" firstAttribute="leading" secondItem="Cei-dP-SBI" secondAttribute="leading" id="KS3-F1-Qwe"/>
+                            <constraint firstItem="IkM-N6-f1i" firstAttribute="bottom" secondItem="esM-LO-KiI" secondAttribute="bottom" constant="40" id="NNp-lP-1MG"/>
                             <constraint firstAttribute="bottom" secondItem="lfn-0H-tWK" secondAttribute="bottom" id="TGX-ra-jEI"/>
                             <constraint firstItem="esM-LO-KiI" firstAttribute="centerY" secondItem="Cei-dP-SBI" secondAttribute="centerY" id="axM-Wt-FHZ"/>
+                            <constraint firstItem="IkM-N6-f1i" firstAttribute="centerX" secondItem="Cei-dP-SBI" secondAttribute="centerX" id="qUi-QE-tau"/>
                             <constraint firstAttribute="trailing" secondItem="lfn-0H-tWK" secondAttribute="trailing" id="ycf-Qk-8rz"/>
                         </constraints>
                     </view>
@@ -104,6 +116,7 @@
     </scenes>
     <resources>
         <image name="qrcode_border" width="51" height="51"/>
+        <image name="qrcode_button_background" width="34" height="32"/>
         <image name="qrcode_scanline_qrcode" width="218" height="170"/>
         <image name="qrcode_tabbar_icon_barcode" width="40" height="40"/>
         <image name="qrcode_tabbar_icon_barcode_highlighted" width="40" height="40"/>
