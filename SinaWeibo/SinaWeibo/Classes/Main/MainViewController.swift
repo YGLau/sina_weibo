@@ -95,12 +95,12 @@ class MainViewController: UITabBarController {
         btn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
         btn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
         // 添加监听
-        btn.addTarget(self, action: "addBtnClick", forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action: #selector(addBtnClick), forControlEvents: UIControlEvents.TouchUpInside)
         return btn
     }()
     // MARK: - 加号按钮点击
     func addBtnClick() {
-        print(__FUNCTION__)
+        print(#function)
     }
 
 }

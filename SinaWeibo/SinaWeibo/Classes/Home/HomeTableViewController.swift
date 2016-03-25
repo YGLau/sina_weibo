@@ -25,8 +25,8 @@ class HomeTableViewController: BaseTableViewController {
         setupNav()
         
         // 监听通知
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationChange", name: PopoverAnimatorWillShow, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationChange", name: PopoverAnimatorWillDismiss, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillShow, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillDismiss, object: nil)
         
     }
     
@@ -43,8 +43,8 @@ class HomeTableViewController: BaseTableViewController {
     private func setupNav() {
         // 设置导航条的未登录按钮
         // 1.左右按钮
-        navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("navigationbar_friendattention", target: self, action: "leftBtnClick")
-        navigationItem.rightBarButtonItem = UIBarButtonItem.createBarButtonItem("navigationbar_pop", target: self, action: "rightBtnClick")
+        navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("navigationbar_friendattention", target: self, action: #selector(leftBtnClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem.createBarButtonItem("navigationbar_pop", target: self, action: #selector(rightBtnClick))
         // 2.中间的 view
         navigationItem.titleView = titleView
     }
@@ -53,7 +53,7 @@ class HomeTableViewController: BaseTableViewController {
         let titleBtn = titleButton()
         titleBtn.setTitle("首页标题 ", forState: UIControlState.Normal)
         
-        titleBtn.addTarget(self, action: "titleBtnClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        titleBtn.addTarget(self, action: #selector(titleBtnClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         return titleBtn
     }()
@@ -74,7 +74,7 @@ class HomeTableViewController: BaseTableViewController {
     
     func leftBtnClick()
     {
-        print(__FUNCTION__)
+        print(#function)
     }
     
     func rightBtnClick()

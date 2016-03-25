@@ -44,12 +44,12 @@ class BaseTableViewController: UITableViewController, VisitorViewDelegate {
     // MARK: - VisitorViewDelegate
     func loginBtnDidClick() {
         
-        print(__FUNCTION__)
+        print(#function)
         
     }
     
     func registerDidClick() {
-        print(__FUNCTION__)
+        print(#function)
     }
     
 
