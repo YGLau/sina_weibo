@@ -30,6 +30,7 @@
 		A49C5C091CA13F6800989FED /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C081CA13F6800989FED /* DiscoverTableViewController.swift */; };
 		A49C5C0B1CA13F7A00989FED /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C0A1CA13F7A00989FED /* MessageTableViewController.swift */; };
 		A49C5C0D1CA13F8400989FED /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C0C1CA13F8400989FED /* ProfileTableViewController.swift */; };
+		A4CB75391CA533AE005EFC5A /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB75381CA533AE005EFC5A /* OAuthViewController.swift */; };
 		A4E6DEC41CA26CB9008B3E45 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6DEC31CA26CB9008B3E45 /* UIView+AutoLayout.swift */; };
 		A4E6DEC61CA294C5008B3E45 /* UIBarButtonItem+category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6DEC51CA294C5008B3E45 /* UIBarButtonItem+category.swift */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		A49C5C081CA13F6800989FED /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		A49C5C0A1CA13F7A00989FED /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		A49C5C0C1CA13F8400989FED /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		A4CB75381CA533AE005EFC5A /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		A4E6DEC31CA26CB9008B3E45 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		A4E6DEC51CA294C5008B3E45 /* UIBarButtonItem+category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+category.swift"; sourceTree = "<group>"; };
 		AC268968C1BE63ED2845075C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 		A49C5BF61CA13CD600989FED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A4CB75371CA53364005EFC5A /* OAuth */,
 				A49C5BF71CA13CD600989FED /* Common */,
 				A49C5BF81CA13CD600989FED /* Discover */,
 				A49C5BF91CA13CD600989FED /* Home */,
@@ -269,6 +272,14 @@
 				A4E6DEC31CA26CB9008B3E45 /* UIView+AutoLayout.swift */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		A4CB75371CA53364005EFC5A /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				A4CB75381CA533AE005EFC5A /* OAuthViewController.swift */,
+			);
+			name = OAuth;
 			sourceTree = "<group>";
 		};
 		A70DD2F88F404FB1743E36C4 /* Frameworks */ = {
@@ -486,6 +497,7 @@
 				A4E6DEC41CA26CB9008B3E45 /* UIView+AutoLayout.swift in Sources */,
 				A49C5C091CA13F6800989FED /* DiscoverTableViewController.swift in Sources */,
 				A451EA311CA247DE009320F0 /* VisitorView.swift in Sources */,
+				A4CB75391CA533AE005EFC5A /* OAuthViewController.swift in Sources */,
 				A47881241CA3C3C0005D3193 /* PopoverAnimator.swift in Sources */,
 				A4E6DEC61CA294C5008B3E45 /* UIBarButtonItem+category.swift in Sources */,
 				A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */,

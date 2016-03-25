@@ -74,7 +74,7 @@ class HomeTableViewController: BaseTableViewController {
     
     func leftBtnClick()
     {
-        print(#function)
+        
     }
     
     func rightBtnClick()
@@ -84,13 +84,7 @@ class HomeTableViewController: BaseTableViewController {
         presentViewController(vc!, animated: true, completion: nil)
     }
     
-    // Mark: - 懒加载
-//    private lazy var popoverAnimator:PopoverAnimator = {
-//        let pa = PopoverAnimator()
-//        pa.presentFrame = CGRect(x: 100, y: 56, width: 200, height: 300)
-//        
-//        return pa
-//    }()
+
     
 
 }

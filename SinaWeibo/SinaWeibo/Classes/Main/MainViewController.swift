@@ -100,7 +100,8 @@ class MainViewController: UITabBarController {
     }()
     // MARK: - 加号按钮点击
     func addBtnClick() {
-        print(#function)
+        
+        
     }
 
 }
