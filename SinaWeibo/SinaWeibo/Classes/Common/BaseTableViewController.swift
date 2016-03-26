@@ -51,6 +51,8 @@ class BaseTableViewController: UITableViewController, VisitorViewDelegate {
     }
     
     func registerDidClick() {
+        // 注册
+        print(NetworkTools.shareNetworkTools())
     }
     
 
