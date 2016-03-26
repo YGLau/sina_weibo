@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class OAuthViewController: UIViewController {
     
@@ -77,16 +78,13 @@ extension OAuthViewController:UIWebViewDelegate {
         // 2.判断是否授权成功
         let codeStr = "code="
         if request.URL!.query!.hasPrefix(codeStr) {
-            print("授权成功!")
-            // 取出已经授权的RequestToken
-            // codeStr.endIndex是拿到code=最后的位置
+            
             // 1.取出已经授权的RequestToken
             let code = request.URL!.query?.substringFromIndex(codeStr.endIndex)
             
             // 2.利用已经授权的RequestToken换取AccessToken
             loadAccessToken(code!)
         } else {
-            print("授权失败")
             close()
         }
         return false
@@ -110,6 +108,19 @@ extension OAuthViewController:UIWebViewDelegate {
                 print(error)
         }
         
+    }
+    
+    // MARK: - 遮盖提示
+    func webViewDidStartLoad(webView: UIWebView) {
+        // 提示用户正在加载
+//        SVProgressHUD.showInfoWithStatus("正在加载...", maskType: SVProgressHUDMaskType.Black)
+        SVProgressHUD.showInfoWithStatus("正在加载...")
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        // 关闭提示
+        SVProgressHUD.dismiss()
     }
     
 
