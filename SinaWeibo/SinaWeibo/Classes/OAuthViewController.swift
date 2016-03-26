@@ -102,9 +102,10 @@ extension OAuthViewController:UIWebViewDelegate {
             
             }, success: { (_, JSON) in
                 
-                // 字典转模型
+                // 1.字典转模型
                 let account = UserAccount(dict: JSON as! [String: AnyObject])
-                print(account)
+                // 2.归档数据
+                account.saveAccount()
             }) { (_, error) in
                 print(error)
         }
