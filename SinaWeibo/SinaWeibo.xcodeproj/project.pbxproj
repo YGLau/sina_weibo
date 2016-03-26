@@ -31,6 +31,7 @@
 		A49C5C091CA13F6800989FED /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C081CA13F6800989FED /* DiscoverTableViewController.swift */; };
 		A49C5C0B1CA13F7A00989FED /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C0A1CA13F7A00989FED /* MessageTableViewController.swift */; };
 		A49C5C0D1CA13F8400989FED /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C5C0C1CA13F8400989FED /* ProfileTableViewController.swift */; };
+		A4AB98A91CA678B800F81328 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB98A81CA678B800F81328 /* UserAccount.swift */; };
 		A4CB75391CA533AE005EFC5A /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB75381CA533AE005EFC5A /* OAuthViewController.swift */; };
 		A4E6DEC41CA26CB9008B3E45 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6DEC31CA26CB9008B3E45 /* UIView+AutoLayout.swift */; };
 		A4E6DEC61CA294C5008B3E45 /* UIBarButtonItem+category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6DEC51CA294C5008B3E45 /* UIBarButtonItem+category.swift */; };
@@ -83,6 +84,7 @@
 		A49C5C081CA13F6800989FED /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		A49C5C0A1CA13F7A00989FED /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		A49C5C0C1CA13F8400989FED /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		A4AB98A81CA678B800F81328 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A4CB75381CA533AE005EFC5A /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		A4E6DEC31CA26CB9008B3E45 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		A4E6DEC51CA294C5008B3E45 /* UIBarButtonItem+category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+category.swift"; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				A4CB75381CA533AE005EFC5A /* OAuthViewController.swift */,
+				A4AB98A81CA678B800F81328 /* UserAccount.swift */,
 			);
 			name = OAuth;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */,
 				A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */,
 				A47881221CA38E30005D3193 /* PopoverPresentationController.swift in Sources */,
+				A4AB98A91CA678B800F81328 /* UserAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

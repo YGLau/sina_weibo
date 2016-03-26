@@ -101,7 +101,10 @@ extension OAuthViewController:UIWebViewDelegate {
         NetworkTools.shareNetworkTools().POST(path, parameters: params, progress: { (_) in
             
             }, success: { (_, JSON) in
-                print(JSON)
+                
+                // 字典转模型
+                let account = UserAccount(dict: JSON as! [String: AnyObject])
+                print(account)
             }) { (_, error) in
                 print(error)
         }
