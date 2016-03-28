@@ -15,7 +15,7 @@ class UserAccount: NSObject {
     var expires_in:NSNumber? {
         didSet{
             // 根据过期的秒数, 生成真正地过期时间
-            expires_date = NSDate(timeIntervalSinceNow: (expires_in?.doubleValue)!)
+            expires_date = NSDate(timeIntervalSinceNow: expires_in!.doubleValue)
         }
     }
     // 当前授权的 uid
@@ -34,14 +34,16 @@ class UserAccount: NSObject {
     }
     
     init(dict: [String:AnyObject]) {
-        access_token = dict["access_token"] as? String
-        expires_in = dict["expires_in"] as? NSNumber
-        uid = dict["uid"] as? String
+        super.init()
+        setValuesForKeysWithDictionary(dict)
+    }
+    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+        print(key)
     }
     
     override var description: String {
         // 1. 定义属性数组
-        let properties = ["access_token", "expires_in", "uid", "expires_date"]
+        let properties = ["access_token", "expires_in", "uid", "expires_date", "avatar_large", "screen_name"]
         // 2. 根据属性数组,将属性转为字典
         let dict = self.dictionaryWithValuesForKeys(properties)
         // 3.将字典转为字符串
@@ -59,9 +61,20 @@ class UserAccount: NSObject {
         NetworkTools.shareNetworkTools().GET(path, parameters: params, progress: { (_) in
             
             }, success: { (_, JSON) in
-                print(JSON)
+//                print(JSON)
+                // 1.判断字典是否有值
+                if let dict = JSON as? [String: AnyObject] {
+                    self.screen_name = dict["screen_name"] as? String
+                    self.avatar_large = dict["avatar_large"] as? String
+                    // 保存用户信息
+                    finish(account: self, error: nil)
+                    return
+                }
+                
+                finish(account: nil, error: nil)
             }) { (_, error) in
-                print(error)
+                
+                finish(account: nil, error: error)
                 
         }
     }
@@ -77,11 +90,10 @@ class UserAccount: NSObject {
     /**
      *  保存授权模型
      */
+    static let filePath = "account.plist".cacheDir()
     func saveAccount() {
-//        let path = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).last!
-//        let filePath = (path as NSString).stringByAppendingPathComponent("account.plist")
         
-        NSKeyedArchiver.archiveRootObject(self, toFile: "account.plist".cacheDir())
+        NSKeyedArchiver.archiveRootObject(self, toFile: UserAccount.filePath)
         
     }
     /**
@@ -98,7 +110,7 @@ class UserAccount: NSObject {
         }
         
         // 2.加载授权模型
-        account = NSKeyedUnarchiver.unarchiveObjectWithFile("account.plist".cacheDir()) as? UserAccount
+        account = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? UserAccount
         
         // 3.判断授权信息是否过期
         if account?.expires_date?.compare(NSDate()) == NSComparisonResult.OrderedAscending {
@@ -115,6 +127,9 @@ class UserAccount: NSObject {
         aCoder.encodeObject(access_token, forKey: "access_token")
         aCoder.encodeObject(expires_in, forKey: "expires_in")
         aCoder.encodeObject(uid, forKey: "uid")
+        aCoder.encodeObject(expires_date, forKey: "expires_date")
+        aCoder.encodeObject(screen_name, forKey: "screen_name")
+        aCoder.encodeObject(avatar_large, forKey: "avatar_large")
     }
     
     // 从文件中读取对象
@@ -122,6 +137,9 @@ class UserAccount: NSObject {
         access_token = aDecoder.decodeObjectForKey("access_token") as? String
         expires_in = aDecoder.decodeObjectForKey("expires_in") as? NSNumber
         uid = aDecoder.decodeObjectForKey("uid") as? String
+        expires_date = aDecoder.decodeObjectForKey("expires_date") as? NSDate
+        avatar_large = aDecoder.decodeObjectForKey("avatar_large") as? String
+        screen_name = aDecoder.decodeObjectForKey("screen_name") as? String
     }
     
 }

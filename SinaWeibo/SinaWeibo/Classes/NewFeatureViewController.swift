@@ -144,7 +144,8 @@ class NewFeatureCell: UICollectionViewCell {
     }()
      /// 进入微博按钮点击
     func startBtnClick() {
-        print(#function)
+        // 发通知
+        NSNotificationCenter.defaultCenter().postNotificationName(YGSwitchRootViewControllerKey, object: true)
     }
     
     var imageIndex:Int = 0 {

@@ -164,7 +164,7 @@ extension QRCodeViewController:AVCaptureMetadataOutputObjectsDelegate {
      */
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
-        print(metadataObjects.last?.stringValue)
+//        print(metadataObjects.last?.stringValue)
         // 1.获取扫描到的位置
         
         // 2.获取扫描到的二维码的位置

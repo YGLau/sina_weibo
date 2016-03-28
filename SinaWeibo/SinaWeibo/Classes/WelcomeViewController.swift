@@ -31,10 +31,10 @@ class WelcomeViewController: UIViewController {
         
         // 3.设置用户头像
         if let iconUrl = UserAccount.loadAccount()?.avatar_large {
-            let url = NSURL(string: iconUrl)
+            let url = NSURL(string: iconUrl)!
+            print(url)
             iconView.sd_setImageWithURL(url)
         }
-        
         
     }
     
@@ -52,8 +52,8 @@ class WelcomeViewController: UIViewController {
                 UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: {
                      self.welcomeLabel.alpha = 1.0
                     }, completion: { (_) in
-                        print("Ok")
                         
+                        NSNotificationCenter.defaultCenter().postNotificationName(YGSwitchRootViewControllerKey, object: true)
                 })
                 
         }

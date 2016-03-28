@@ -90,11 +90,16 @@ extension OAuthViewController:UIWebViewDelegate {
                 account.loadUserInfo({ (account, error) in
                     if account != nil {
                         account!.saveAccount()
+                        // 去欢迎界面
+                        NSNotificationCenter.defaultCenter().postNotificationName(YGSwitchRootViewControllerKey, object: false)
+                        return
                     }
                     SVProgressHUD.showInfoWithStatus("网络不给力")
                 })
+
             }) { (_, error) in
-                print(error)
+                SVProgressHUD.showErrorWithStatus("登录失败")
+                self.close()
         }
         
     }
