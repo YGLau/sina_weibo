@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class WelcomeViewController: UIViewController {
         /// 头像的底部约束
     var bottomCons:NSLayoutConstraint?
@@ -30,11 +30,33 @@ class WelcomeViewController: UIViewController {
         welcomeLabel.xmg_AlignVertical(type: XMG_AlignType.BottomCenter, referView: iconView, size: nil, offset: CGPoint(x: 0, y: 20))
         
         // 3.设置用户头像
-        if let iconUrl = UserAccount.loadAccount() {
-            <#code#>
+        if let iconUrl = UserAccount.loadAccount()?.avatar_large {
+            let url = NSURL(string: iconUrl)
+            iconView.sd_setImageWithURL(url)
         }
         
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        bottomCons?.constant = -UIScreen.mainScreen().bounds.size.height - bottomCons!.constant
+        
+        // 执行动画
+        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue:0), animations: {
+            // 头像
+            self.iconView.layoutIfNeeded()
+            
+            }) { (_) in
+                // 文本动画
+                UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: {
+                     self.welcomeLabel.alpha = 1.0
+                    }, completion: { (_) in
+                        print("Ok")
+                        
+                })
+                
+        }
     }
     
     /**

@@ -86,8 +86,13 @@ extension OAuthViewController:UIWebViewDelegate {
                 
                 // 1.字典转模型
                 let account = UserAccount(dict: JSON as! [String: AnyObject])
-                // 2.归档数据
-                account.saveAccount()
+                // 2.获取用户信息
+                account.loadUserInfo({ (account, error) in
+                    if account != nil {
+                        account!.saveAccount()
+                    }
+                    SVProgressHUD.showInfoWithStatus("网络不给力")
+                })
             }) { (_, error) in
                 print(error)
         }
