@@ -69,7 +69,7 @@ class QRCodeViewController: UIViewController, UITabBarDelegate {
     /**
      冲击波动画
      */
-    private func startAnimation() {
+    func startAnimation() {
         // 让约束从顶部开始
         scanLineTopCons.constant = -containerHeightCons.constant
         scanLineView.layoutIfNeeded()

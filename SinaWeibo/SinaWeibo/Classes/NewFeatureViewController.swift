@@ -65,6 +65,31 @@ class NewFeatureViewController: UICollectionViewController {
         cell.imageIndex = indexPath.item
         return cell
     }
+    /**
+     cell显示完毕后调用
+     */
+    override func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+//        print(indexPath)
+        // 拿到当前 Cell 显示的索引
+        let currentIndex = collectionView.indexPathsForVisibleItems().last!
+        // 判断是否会最后一页
+        // 拿到当前页对应索引的 cell
+        let currentCell = collectionView.cellForItemAtIndexPath(currentIndex) as! NewFeatureCell
+        if currentIndex.item == (pageCount - 1) {
+            
+            // 让 Cell 执行动画
+            currentCell.startAnimation()
+            
+        }
+    }
+    
+    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.item != (pageCount - 1) {
+            
+            (cell as! NewFeatureCell).startBtn.hidden = true
+        }
+    }
 
     // MARK: UICollectionViewDelegate
 
@@ -111,9 +136,17 @@ class NewFeatureCell: UICollectionViewCell {
         btn.setImage(UIImage(named:"new_feature_button"), forState: UIControlState.Normal)
         btn.setBackgroundImage(UIImage(named:"new_feature_finish_button"), forState: UIControlState.Normal)
         btn.setBackgroundImage(UIImage(named:"new_feature_finish_button_Highlighted"), forState: UIControlState.Highlighted)
+        btn.addTarget(self, action: #selector(startBtnClick), forControlEvents: UIControlEvents.TouchUpInside)
+        // 隐藏
+        btn.hidden = true
         
         return btn
     }()
+     /// 进入微博按钮点击
+    func startBtnClick() {
+        print(#function)
+    }
+    
     var imageIndex:Int = 0 {
         didSet {
             iconView.image = UIImage(named: "new_feature_\(imageIndex + 1)")
@@ -122,8 +155,9 @@ class NewFeatureCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        contentView.addSubview(iconView)
+
+        // 初始化子控件
+        setupChildWidget()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -132,12 +166,37 @@ class NewFeatureCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        iconView.frame = bounds
         
-        // 布局按钮
-//        iconView.translatesAutoresizingMaskIntoConstraints = false
-//        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H|[subView]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: ["subView":iconView]))
-//        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V|[subView]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: <#T##[String : AnyObject]#>))
+    }
+    /**
+     初始化子控件
+     */
+    private func setupChildWidget() {
+        // 1.添加子控件
+        contentView.addSubview(iconView)
+        contentView.addSubview(startBtn)
+        // 2.布局子控件
+        iconView.frame = bounds
+        startBtn.xmg_AlignInner(type: XMG_AlignType.BottomCenter, referView: contentView, size: nil, offset: CGPoint(x: 0, y: -160))
+        
+    }
+    
+    /// 按钮动画
+    func startAnimation() {
+        
+        startBtn.hidden = false
+        // 动画
+        startBtn.userInteractionEnabled = false
+        startBtn.transform = CGAffineTransformMakeScale(0.0, 0.0)
+        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: UIViewAnimationOptions(rawValue:0), animations: {
+            // 清空形变
+            self.startBtn.transform = CGAffineTransformIdentity
+            
+            }) { (_) in
+                
+                self.startBtn.userInteractionEnabled = true
+        }
+
     }
 }
 

@@ -15,6 +15,7 @@
 		A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */; };
 		A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B31CA51C5A004595FC /* TestViewController.swift */; };
 		A451712F1CA8C43C0022D3D2 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451712E1CA8C43C0022D3D2 /* NewFeatureViewController.swift */; };
+		A45171311CA921E40022D3D2 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45171301CA921E40022D3D2 /* WelcomeViewController.swift */; };
 		A451EA2C1CA2335F009320F0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = A451EA2A1CA2335F009320F0 /* MainVCSettings.json */; };
 		A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451EA2B1CA2335F009320F0 /* NullViewController.swift */; };
 		A451EA2F1CA246ED009320F0 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451EA2E1CA246ED009320F0 /* BaseTableViewController.swift */; };
@@ -64,6 +65,7 @@
 		A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCardViewController.swift; sourceTree = "<group>"; };
 		A44BF7B31CA51C5A004595FC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		A451712E1CA8C43C0022D3D2 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
+		A45171301CA921E40022D3D2 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A451EA2A1CA2335F009320F0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		A451EA2B1CA2335F009320F0 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 		A451EA2E1CA246ED009320F0 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewController.swift; path = ../Common/BaseTableViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				A451712E1CA8C43C0022D3D2 /* NewFeatureViewController.swift */,
+				A45171301CA921E40022D3D2 /* WelcomeViewController.swift */,
 			);
 			name = "New Feature";
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				A451EA2F1CA246ED009320F0 /* BaseTableViewController.swift in Sources */,
 				A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */,
 				A49C5C051CA13F1100989FED /* MainViewController.swift in Sources */,
+				A45171311CA921E40022D3D2 /* WelcomeViewController.swift in Sources */,
 				A49C5C0B1CA13F7A00989FED /* MessageTableViewController.swift in Sources */,
 				A4E6DEC41CA26CB9008B3E45 /* UIView+AutoLayout.swift in Sources */,
 				A49C5C091CA13F6800989FED /* DiscoverTableViewController.swift in Sources */,
