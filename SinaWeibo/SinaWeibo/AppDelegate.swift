@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
         // 2.创建根控制器
-        window?.rootViewController = MainViewController()
+        window?.rootViewController = NewFeatureViewController()
         window?.makeKeyAndVisible()
         
         // 进行一些全局设置

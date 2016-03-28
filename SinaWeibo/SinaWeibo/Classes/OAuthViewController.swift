@@ -19,15 +19,7 @@ class OAuthViewController: UIViewController {
         super.viewDidLoad()
         /// 加载授权页面
         loadAuthPage()
-        
-        
-        webView.delegate = self
-        //请求
-        // https://api.weibo.com/oauth2/authorize?client_id=123050457758183&redirect_uri=http://www.example.com/response&response_type=code
-        
-        //同意授权后会重定向
-        // http://www.example.com/response&code=CODE
-        
+    
     }
     /// 加载授权页面
     private func loadAuthPage()  {
@@ -37,7 +29,7 @@ class OAuthViewController: UIViewController {
         let request = NSURLRequest(URL: url!)
         
         webView.loadRequest(request)
-        
+        webView.delegate = self
     }
     
     override func loadView() {
@@ -57,19 +49,11 @@ class OAuthViewController: UIViewController {
 
 }
 
+//MARK: - UIWebViewDelegate
 extension OAuthViewController:UIWebViewDelegate {
     
-    //MARK: - UIWebViewDelegate
+
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        /*
-         加载授权界面: https://api.weibo.com/oauth2/authorize?client_id=2624860832&redirect_uri=http://www.520it.com
-         
-         跳转到授权界面: https://api.weibo.com/oauth2/authorize
-         
-         授权成功: http://www.520it.com/?code=91e779d15aa73698cbbb72bc7452f3b3
-         
-         取消授权: http://www.520it.com/?error_uri=%2Foauth2%2Fauthorize&error=access_denied&error_description=user%20denied%20your%20request.&error_code=21330
-         */
         // 1.判断是否是授权回调页面, 如果不是就继续加载
         let urlStr = request.URL?.absoluteString
         if !urlStr!.hasPrefix(WB_Redirect_URI) {
@@ -113,7 +97,6 @@ extension OAuthViewController:UIWebViewDelegate {
     // MARK: - 遮盖提示
     func webViewDidStartLoad(webView: UIWebView) {
         // 提示用户正在加载
-//        SVProgressHUD.showInfoWithStatus("正在加载...", maskType: SVProgressHUDMaskType.Black)
         SVProgressHUD.showInfoWithStatus("正在加载...")
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
     }
@@ -124,5 +107,4 @@ extension OAuthViewController:UIWebViewDelegate {
     }
     
 
-    
 }
