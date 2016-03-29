@@ -14,6 +14,8 @@
 		A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44100771CA2B5BC0076C374 /* titleButton.swift */; };
 		A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */; };
 		A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B31CA51C5A004595FC /* TestViewController.swift */; };
+		A44D93371CAA304100419720 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D93361CAA304100419720 /* Status.swift */; };
+		A44D93391CAA595900419720 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D93381CAA595900419720 /* User.swift */; };
 		A451712F1CA8C43C0022D3D2 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451712E1CA8C43C0022D3D2 /* NewFeatureViewController.swift */; };
 		A45171311CA921E40022D3D2 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45171301CA921E40022D3D2 /* WelcomeViewController.swift */; };
 		A451EA2C1CA2335F009320F0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = A451EA2A1CA2335F009320F0 /* MainVCSettings.json */; };
@@ -64,6 +66,8 @@
 		A44100771CA2B5BC0076C374 /* titleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = titleButton.swift; sourceTree = "<group>"; };
 		A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCardViewController.swift; sourceTree = "<group>"; };
 		A44BF7B31CA51C5A004595FC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		A44D93361CAA304100419720 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Status.swift; path = ../Status.swift; sourceTree = "<group>"; };
+		A44D93381CAA595900419720 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A451712E1CA8C43C0022D3D2 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		A45171301CA921E40022D3D2 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A451EA2A1CA2335F009320F0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 				A425B3711CA3D41000584784 /* QRCode */,
 				A478811C1CA38565005D3193 /* Popover */,
 				A49C5C061CA13F4C00989FED /* HomeTableViewController.swift */,
+				A44D93361CAA304100419720 /* Status.swift */,
+				A44D93381CAA595900419720 /* User.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -508,7 +514,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44D93391CAA595900419720 /* User.swift in Sources */,
 				A49C5C0D1CA13F8400989FED /* ProfileTableViewController.swift in Sources */,
+				A44D93371CAA304100419720 /* Status.swift in Sources */,
 				A49C5C071CA13F4C00989FED /* HomeTableViewController.swift in Sources */,
 				A425B3751CA3D9A100584784 /* QRCodeViewController.swift in Sources */,
 				A47881201CA3879D005D3193 /* PopoverViewController.swift in Sources */,

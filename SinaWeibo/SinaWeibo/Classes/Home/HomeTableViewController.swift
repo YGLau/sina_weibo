@@ -8,25 +8,51 @@
 
 import UIKit
 
+let YGHomeCellReuseIdentifier = "YGHomeCellReuseIdentifier"
+
 class HomeTableViewController: BaseTableViewController {
     
-    
+    var statuses: [Status]?
+    {
+        didSet{
+            // 当别人设置完毕数据, 就刷新表格
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 1.如果没有登录, 就设置未登录界面的信息
         if !userLogin
         {
             visitorView?.setupVisitorInfo(true, imageName: "visitordiscover_feed_image_house", message: "关注一些人，回这里看看有什么惊喜")
             return
         }
         
-        // 设置导航条
+        // 2.设置导航条
         setupNav()
         
-        // 监听通知
+        // 3.监听通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillDismiss, object: nil)
+        
+        // 4.注册一个 cell
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: YGHomeCellReuseIdentifier)
+        
+        // 加载数据
+        loadData()
+        
+    }
+    /**
+     获取微博数据
+     */
+    private func loadData() {
+        Status.loadStatuses { (models, error) in
+            if error != nil {
+                return
+            }
+            self.statuses = models
+        }
         
     }
     
@@ -84,8 +110,25 @@ class HomeTableViewController: BaseTableViewController {
         presentViewController(vc!, animated: true, completion: nil)
     }
     
-
-    
-
 }
+
+extension HomeTableViewController {
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statuses?.count ?? 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // 获取 Cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(YGHomeCellReuseIdentifier, forIndexPath: indexPath)
+        // 取出模型
+        let status = statuses![indexPath.row]
+        cell.textLabel?.text = status.text
+        
+        return cell
+        
+    }
+}
+
+
 
