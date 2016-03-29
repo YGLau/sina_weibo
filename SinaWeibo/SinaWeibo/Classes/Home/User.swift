@@ -11,7 +11,7 @@ import UIKit
 class User: NSObject {
     // 用户 ID
     var id: Int = 0
-    // 好友显示名称
+    /// 好友显示名称
     var name:String?
     
     // 用户头像地址(中国), 50 * 50 像素

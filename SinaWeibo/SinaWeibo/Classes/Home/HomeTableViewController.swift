@@ -37,7 +37,9 @@ class HomeTableViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillDismiss, object: nil)
         
         // 4.注册一个 cell
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: YGHomeCellReuseIdentifier)
+        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: YGHomeCellReuseIdentifier)
+        // 去除分割线
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         // 加载数据
         loadData()
@@ -120,14 +122,23 @@ extension HomeTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 获取 Cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(YGHomeCellReuseIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(YGHomeCellReuseIdentifier, forIndexPath: indexPath) as! StatusTableViewCell
         // 取出模型
         let status = statuses![indexPath.row]
-        cell.textLabel?.text = status.text
+//        cell.textLabel?.text = status.text
+        cell.status = status
         
         return cell
         
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        
+        return 200.0
+    }
+    
+    
 }
 
 

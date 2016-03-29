@@ -16,6 +16,7 @@
 		A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B31CA51C5A004595FC /* TestViewController.swift */; };
 		A44D93371CAA304100419720 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D93361CAA304100419720 /* Status.swift */; };
 		A44D93391CAA595900419720 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D93381CAA595900419720 /* User.swift */; };
+		A44D933B1CAA5ECA00419720 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D933A1CAA5ECA00419720 /* StatusTableViewCell.swift */; };
 		A451712F1CA8C43C0022D3D2 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451712E1CA8C43C0022D3D2 /* NewFeatureViewController.swift */; };
 		A45171311CA921E40022D3D2 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45171301CA921E40022D3D2 /* WelcomeViewController.swift */; };
 		A451EA2C1CA2335F009320F0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = A451EA2A1CA2335F009320F0 /* MainVCSettings.json */; };
@@ -68,6 +69,7 @@
 		A44BF7B31CA51C5A004595FC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		A44D93361CAA304100419720 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Status.swift; path = ../Status.swift; sourceTree = "<group>"; };
 		A44D93381CAA595900419720 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A44D933A1CAA5ECA00419720 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
 		A451712E1CA8C43C0022D3D2 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		A45171301CA921E40022D3D2 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A451EA2A1CA2335F009320F0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				A49C5C061CA13F4C00989FED /* HomeTableViewController.swift */,
 				A44D93361CAA304100419720 /* Status.swift */,
 				A44D93381CAA595900419720 /* User.swift */,
+				A44D933A1CAA5ECA00419720 /* StatusTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				A451EA311CA247DE009320F0 /* VisitorView.swift in Sources */,
 				A42BE7551CA617FB00A93EB1 /* NetworkTools.swift in Sources */,
 				A4CB75391CA533AE005EFC5A /* OAuthViewController.swift in Sources */,
+				A44D933B1CAA5ECA00419720 /* StatusTableViewCell.swift in Sources */,
 				A47881241CA3C3C0005D3193 /* PopoverAnimator.swift in Sources */,
 				A4E6DEC61CA294C5008B3E45 /* UIBarButtonItem+category.swift in Sources */,
 				A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */,
