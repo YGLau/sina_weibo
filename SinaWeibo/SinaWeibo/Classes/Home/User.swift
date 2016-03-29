@@ -16,6 +16,17 @@ class User: NSObject {
     
     // 用户头像地址(中国), 50 * 50 像素
     var profile_image_url: String?
+    {
+        didSet{
+            if let urlStr = profile_image_url {
+                imageURL = NSURL(string: urlStr)
+            }
+        }
+    }
+    
+     /// 保存头像的URL
+    var imageURL: NSURL?
+    
     
     // 是否是认证
     var verified: Bool = false
@@ -33,7 +44,7 @@ class User: NSObject {
         
     }
     
-    var properties = ["id", "name", "profile_image_url", "verified", "verified_type"]
+    var properties = ["id", "name", "profile_image_url", "verified", "verified_type", "imageURL"]
     override var description: String {
         let dict = dictionaryWithValuesForKeys(properties)
         return "\(dict)"

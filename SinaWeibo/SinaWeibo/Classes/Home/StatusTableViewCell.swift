@@ -17,6 +17,9 @@ class StatusTableViewCell: UITableViewCell {
             timeLabel.text = "2016-03-29 15:50"
             nameLabel.text = status?.user?.name
             
+            if let url = status?.user?.imageURL {
+                iconView.sd_setImageWithURL(url)
+            }
         }
     }
 
