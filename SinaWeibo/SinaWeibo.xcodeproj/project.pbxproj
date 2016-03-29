@@ -17,6 +17,8 @@
 		A44D93371CAA304100419720 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D93361CAA304100419720 /* Status.swift */; };
 		A44D93391CAA595900419720 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D93381CAA595900419720 /* User.swift */; };
 		A44D933B1CAA5ECA00419720 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D933A1CAA5ECA00419720 /* StatusTableViewCell.swift */; };
+		A44D93431CAA7AAB00419720 /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D93421CAA7AAB00419720 /* UILabel+Category.swift */; };
+		A44D93451CAA7D9500419720 /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D93441CAA7D9500419720 /* UIButton+Category.swift */; };
 		A451712F1CA8C43C0022D3D2 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451712E1CA8C43C0022D3D2 /* NewFeatureViewController.swift */; };
 		A45171311CA921E40022D3D2 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45171301CA921E40022D3D2 /* WelcomeViewController.swift */; };
 		A451EA2C1CA2335F009320F0 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = A451EA2A1CA2335F009320F0 /* MainVCSettings.json */; };
@@ -70,6 +72,8 @@
 		A44D93361CAA304100419720 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Status.swift; path = ../Status.swift; sourceTree = "<group>"; };
 		A44D93381CAA595900419720 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A44D933A1CAA5ECA00419720 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		A44D93421CAA7AAB00419720 /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Category.swift"; sourceTree = "<group>"; };
+		A44D93441CAA7D9500419720 /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Category.swift"; sourceTree = "<group>"; };
 		A451712E1CA8C43C0022D3D2 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		A45171301CA921E40022D3D2 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A451EA2A1CA2335F009320F0 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 			children = (
 				A4E6DEC51CA294C5008B3E45 /* UIBarButtonItem+category.swift */,
 				A44100771CA2B5BC0076C374 /* titleButton.swift */,
+				A44D93421CAA7AAB00419720 /* UILabel+Category.swift */,
+				A44D93441CAA7D9500419720 /* UIButton+Category.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -541,7 +547,9 @@
 				A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */,
 				A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */,
 				A4AB98AB1CA685B600F81328 /* String+category.swift in Sources */,
+				A44D93431CAA7AAB00419720 /* UILabel+Category.swift in Sources */,
 				A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */,
+				A44D93451CAA7D9500419720 /* UIButton+Category.swift in Sources */,
 				A47881221CA38E30005D3193 /* PopoverPresentationController.swift in Sources */,
 				A4AB98A91CA678B800F81328 /* UserAccount.swift in Sources */,
 			);

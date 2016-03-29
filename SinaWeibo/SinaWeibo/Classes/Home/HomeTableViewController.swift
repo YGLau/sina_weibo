@@ -40,6 +40,8 @@ class HomeTableViewController: BaseTableViewController {
         tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: YGHomeCellReuseIdentifier)
         // 去除分割线
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         // 加载数据
         loadData()
@@ -132,11 +134,11 @@ extension HomeTableViewController {
         
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        
-        return 200.0
-    }
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        
+//        
+//        return 200.0
+//    }
     
     
 }

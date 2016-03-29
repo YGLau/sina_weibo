@@ -23,7 +23,8 @@ class StatusTableViewCell: UITableViewCell {
     // 自定义一个类需要重写的init方法是 designated
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        // 去除选中样式
+        selectionStyle = UITableViewCellSelectionStyle.None
         // 初始化子控件
         setupWedget()
         
@@ -76,10 +77,7 @@ class StatusTableViewCell: UITableViewCell {
     }()
     // 昵称
     private lazy var nameLabel: UILabel = {
-        let nl = UILabel()
-        nl.font = UIFont.systemFontOfSize(15)
-        nl.textColor = UIColor.orangeColor()
-        
+        let nl = UILabel.createLabel(textColor: UIColor.orangeColor(), fontSize: 12.0)
         return nl
     }()
     // 会员图标
@@ -89,25 +87,19 @@ class StatusTableViewCell: UITableViewCell {
     }()
     // 时间
     private lazy var timeLabel: UILabel = {
-        let tl = UILabel()
-        tl.font = UIFont.systemFontOfSize(12)
-        tl.textColor = UIColor.darkGrayColor()
+        let tl = UILabel.createLabel(textColor: UIColor.darkGrayColor(), fontSize: 12.0)
         return tl
     }()
     // 来源
     private lazy var sourceLabel: UILabel = {
-        let sl = UILabel()
-        sl.font = UIFont.systemFontOfSize(12)
-        sl.textColor = UIColor.darkGrayColor()
-        
+        let sl = UILabel.createLabel(textColor: UIColor.darkGrayColor(), fontSize: 12.0)
         return sl
     }()
     // 正文
     private lazy var contentLabel: UILabel = {
-        let cl = UILabel()
+        let cl = UILabel.createLabel(textColor: UIColor.blackColor(), fontSize: 15.0)
         cl.numberOfLines = 0
         cl.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.size.width - 20
-        cl.font = UIFont.systemFontOfSize(15)
         return cl
         
     }()
@@ -140,34 +132,19 @@ class BottomBar: UIView {
     }
         /// 转发按钮
     private lazy var retweetBtn: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "timeline_icon_retweet"), forState: UIControlState.Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(12)
-        btn.setTitle("11", forState: UIControlState.Normal)
-        btn.setBackgroundImage(UIImage(named: "timeline_card_bottom_background"), forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
+        let btn = UIButton.createButton(WithTitle: "11", imageName: "timeline_icon_retweet")
         return btn
     }()
         /// 评论按钮
     private lazy var commentBtn: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "timeline_icon_comment"), forState: UIControlState.Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(12)
-        btn.setTitle("205", forState: UIControlState.Normal)
-        btn.setBackgroundImage(UIImage(named: "timeline_card_bottom_background"), forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
+        let btn = UIButton.createButton(WithTitle: "205", imageName: "timeline_icon_comment")
         return btn
         
     }()
         /// 赞按钮
     private lazy var likeBtn: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "timeline_icon_unlike"), forState: UIControlState.Normal)
+        let btn = UIButton.createButton(WithTitle: "422", imageName: "timeline_icon_unlike")
         btn.setImage(UIImage(named: "timeline_icon_like"), forState: UIControlState.Selected)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(12)
-        btn.setTitle("422", forState: UIControlState.Normal)
-        btn.setBackgroundImage(UIImage(named: "timeline_card_bottom_background"), forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
         return btn
     }()
 }
