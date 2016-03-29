@@ -20,6 +20,10 @@ class StatusTableViewCell: UITableViewCell {
             if let url = status?.user?.imageURL {
                 iconView.sd_setImageWithURL(url)
             }
+            // 认证图片
+            verifiedView.image = status?.user?.vertifiedImage
+            // 会员图标
+            vipView.image = status?.user?.mbrankImage
         }
     }
 

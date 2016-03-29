@@ -33,6 +33,35 @@ class User: NSObject {
     
     // 用户认证的类型 -1:没有认证, 0, 认证用户, 2, 3, 5: 企业认证,220: 达人
     var verified_type: Int = -1
+        {
+        didSet{
+            switch verified_type {
+            case 0:
+                vertifiedImage = UIImage(named: "avatar_vip")
+            case 2, 3, 5:
+                vertifiedImage = UIImage(named: "avatar_enterprise_vip")
+            case 220:
+                vertifiedImage = UIImage(named: "avatar_grassroot")
+            default:
+                vertifiedImage = nil
+            }
+        }
+    }
+        /// 用户当前的认证图片
+    var vertifiedImage: UIImage?
+    
+    var mbrank: Int = 0
+        {
+        didSet{
+            if mbrank > 0 && mbrank < 7 {
+                 mbrankImage = UIImage(named: "common_icon_membership_level\(mbrank)")
+            }
+        }
+    }
+        /// 用户的会员等级
+    var mbrankImage: UIImage?
+    
+    
     
     // 字典转模型
     init(dict: [String: AnyObject]) {

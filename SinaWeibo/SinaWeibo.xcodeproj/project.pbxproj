@@ -267,9 +267,9 @@
 				A425B3711CA3D41000584784 /* QRCode */,
 				A478811C1CA38565005D3193 /* Popover */,
 				A49C5C061CA13F4C00989FED /* HomeTableViewController.swift */,
+				A44D933A1CAA5ECA00419720 /* StatusTableViewCell.swift */,
 				A44D93361CAA304100419720 /* Status.swift */,
 				A44D93381CAA595900419720 /* User.swift */,
-				A44D933A1CAA5ECA00419720 /* StatusTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
