@@ -13,8 +13,10 @@ class StatusTableViewCell: UITableViewCell {
     var status: Status? {
         didSet {
             contentLabel.text = status?.text
-            sourceLabel.text = "刚刚"
+            // 来源
+            sourceLabel.text = status?.source
             timeLabel.text = "2016-03-29 15:50"
+            // 昵称
             nameLabel.text = status?.user?.name
             
             if let url = status?.user?.imageURL {

@@ -17,6 +17,21 @@ class Status: NSObject {
     var text:String?
     /// 微博来源
     var source:String?
+    {
+        didSet{
+            // <a href=\"http://app.weibo.com/t/feed/4fuyNj\" rel=\"nofollow\">即刻笔记</a>
+            // source = "<a href=\"http://weibo.com/\" rel=\"nofollow\">\U5fae\U535a weibo.com</a>"
+            // 截取字符串
+            if let str = source {
+                // 1.获取开始的位置
+                let startLoaction = (str as NSString).rangeOfString(">").location + 1
+                // 2.获取截取的长度
+                let length = (str as NSString).rangeOfString("<", options: NSStringCompareOptions.BackwardsSearch).location - startLoaction
+                // 3.截取
+                source = "来自" + (str as NSString).substringWithRange(NSMakeRange(startLoaction, length))
+            }
+        }
+    }
     /// 配图数组
     var pic_urls:[[String: AnyObject]]?
     
@@ -32,7 +47,7 @@ class Status: NSObject {
         let params = ["access_token":UserAccount.loadAccount()!.access_token!]
         
         NetworkTools.shareNetworkTools().GET(path, parameters: params, progress: nil, success: { (_, JSON) in
-//            print(JSON)
+            print(JSON)
             // 1.取出statuses key对应的数组 (存储的都是字典)
             // 2.遍历数组, 将字典转换为模型
             let models = dict2Model(JSON!["statuses"] as! [[String: AnyObject]])
