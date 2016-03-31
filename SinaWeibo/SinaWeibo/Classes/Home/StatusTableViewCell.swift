@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class StatusTableViewCell: UITableViewCell {
     
@@ -70,6 +71,49 @@ class StatusTableViewCell: UITableViewCell {
         bottomBar.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: contentLabel, size: CGSize(width: width, height: 44), offset: CGPoint(x: -10, y: 10))
 
         bottomBar.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: contentView, size: nil, offset: CGPoint(x: -10, y: -10))
+    }
+    
+     /// 计算配图尺寸
+    func calculateImageSize() -> CGSize {
+        // 1.取出配图个数
+        let imageCount = status?.storedPicURLs?.count
+        // 2.如果没有配图
+        if imageCount == 0 || imageCount == nil {
+            return CGSizeZero
+        }
+        // 3.如果一张图片就按真实尺寸显示
+        if imageCount == 1 {
+            // 3.1取出缓存的图片
+            let key = status?.storedPicURLs?.first?.absoluteString
+            let iamge = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)
+            // 3.2返回缓存图片的尺寸
+            return iamge.size
+        }
+        
+        // 4.如果有4张配图,田字格显示
+        let width = 90
+        let margin = 10
+        if imageCount == 4 {
+            let viewWidth = width * 2 + margin
+            return CGSize(width: viewWidth, height: viewWidth)
+            
+            
+        }
+        // 5.多张图片,九宫格显示
+        // 列数
+        // 4+ 3 - 1 / 3 = 2
+        // 5 + 3 - 1 / 3 = 2
+        // 6 + 3 - 1 / 3 = 2
+        // 7 + 3 -1 / 3 = 3
+        let colNum = 3
+        // 行数
+        let rowNum = (imageCount! + colNum - 1) / colNum
+        
+        let viewWidth = width * colNum + (colNum - 1) * margin
+        let viewHeight = width * rowNum + (rowNum - 1) * margin
+        
+        return CGSize(width: viewWidth, height: viewHeight)
+        
     }
     
     // MARK: - 懒加载
