@@ -43,6 +43,24 @@ class Status: NSObject {
     }
     /// 配图数组
     var pic_urls:[[String: AnyObject]]?
+    {
+        didSet{
+            // 初始化数组
+            storedPicURLs = [NSURL]()
+            // 遍历配图数组,取出所有图片的路径
+            for dict in pic_urls! {
+                if let urlStr = dict["thumbnail_pic"] {
+                    // 将字符串转为 url 保存到数组中
+                    storedPicURLs?.append(NSURL(string: urlStr as! String)!)
+                }
+            }
+            
+        }
+    }
+    /**
+     保存当前微博所有的配图的 url
+     */
+    var storedPicURLs: [NSURL]?
     
     // 用户信息
     var user: User?
