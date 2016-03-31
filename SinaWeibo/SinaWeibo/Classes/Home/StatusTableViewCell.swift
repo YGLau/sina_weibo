@@ -15,7 +15,8 @@ class StatusTableViewCell: UITableViewCell {
             contentLabel.text = status?.text
             // 来源
             sourceLabel.text = status?.source
-            timeLabel.text = "2016-03-29 15:50"
+            // 创建时间
+            timeLabel.text = status?.created_at
             // 昵称
             nameLabel.text = status?.user?.name
             

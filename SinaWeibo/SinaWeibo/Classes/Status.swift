@@ -11,6 +11,15 @@ import UIKit
 class Status: NSObject {
     // 微博创建时间
     var created_at: String?
+    {
+        didSet{
+            // "Thu Mar 31 09:31:11 +0800 2016"
+            // 1.字符串to时间
+            let DateStr = NSDate.dateFromStr(created_at!)
+            // 2.获取格式化后的字符串
+            created_at = DateStr.descDate
+        }
+    }
     /// 微博ID
     var id:Int = 0
     /// 微博信息内容
@@ -47,7 +56,7 @@ class Status: NSObject {
         let params = ["access_token":UserAccount.loadAccount()!.access_token!]
         
         NetworkTools.shareNetworkTools().GET(path, parameters: params, progress: nil, success: { (_, JSON) in
-            print(JSON)
+//            print(JSON)
             // 1.取出statuses key对应的数组 (存储的都是字典)
             // 2.遍历数组, 将字典转换为模型
             let models = dict2Model(JSON!["statuses"] as! [[String: AnyObject]])
