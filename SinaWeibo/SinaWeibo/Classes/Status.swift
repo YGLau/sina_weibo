@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class Status: NSObject {
     // 微博创建时间
@@ -32,6 +33,9 @@ class Status: NSObject {
             // source = "<a href=\"http://weibo.com/\" rel=\"nofollow\">\U5fae\U535a weibo.com</a>"
             // 截取字符串
             if let str = source {
+                if str == "" { // 如果为空直接返回
+                    return
+                }
                 // 1.获取开始的位置
                 let startLoaction = (str as NSString).rangeOfString(">").location + 1
                 // 2.获取截取的长度
@@ -69,7 +73,7 @@ class Status: NSObject {
     /**
      *  加载微博数据
      */
-    class func loadStatuses(finish: (models:[Status]?, error:NSError?) ->()) {
+    class func loadStatuses(finished: (models:[Status]?, error:NSError?) ->()) {
         let path = "2/statuses/home_timeline.json"
         let params = ["access_token":UserAccount.loadAccount()!.access_token!]
         
@@ -78,14 +82,52 @@ class Status: NSObject {
             // 1.取出statuses key对应的数组 (存储的都是字典)
             // 2.遍历数组, 将字典转换为模型
             let models = dict2Model(JSON!["statuses"] as! [[String: AnyObject]])
-            finish(models: models, error: nil)
+            // 3.缓存微博配图
+            cacheStatusImage(models, finished: finished)
             
             }) { (_, error) in
                 print(error)
-                finish(models: nil, error: error)
+                finished(models: nil, error: error)
                 
         }
         
+        
+    }
+    /**
+     缓存配图
+     */
+    class func cacheStatusImage(list: [Status], finished: (models: [Status]?, error:NSError?) -> ()) {
+        
+        // 1.创建一个组
+        let group = dispatch_group_create()
+        
+        // 2.缓存图片
+        for status in list {
+            guard let urls  = status.storedPicURLs else {
+                continue
+            }
+            
+            for url in status.storedPicURLs! {
+                // 将当前的下载操作添加到组中
+                dispatch_group_enter(group)
+                
+                // 缓存图片
+                SDWebImageManager.sharedManager().downloadImageWithURL(url, options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (_, _, _, _, _) in
+                    // 离开当前组
+                    dispatch_group_leave(group)
+                })
+            }
+        }
+        
+        // 2.当所有图片都下载完毕再通过闭包通知调用者
+//        dispatch_group_notify(group, dispatch_get_main_queue()) {
+//            // 能够来到这个地方, 一定是所有图片都下载完毕
+//            finished(models: list, error: nil)
+//        }
+        dispatch_group_notify(group, dispatch_get_main_queue()) { () -> Void in
+            // 能够来到这个地方, 一定是所有图片都下载完毕
+            finished(models: list, error: nil)
+        }
         
     }
     
