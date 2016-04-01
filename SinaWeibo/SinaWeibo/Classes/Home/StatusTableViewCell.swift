@@ -41,7 +41,6 @@ class StatusTableViewCell: UITableViewCell {
         // 初始化子控件
         setupWedgets()
         
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
