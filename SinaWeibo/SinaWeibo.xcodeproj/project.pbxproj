@@ -41,6 +41,9 @@
 		A4AB98A91CA678B800F81328 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB98A81CA678B800F81328 /* UserAccount.swift */; };
 		A4AB98AB1CA685B600F81328 /* String+category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB98AA1CA685B600F81328 /* String+category.swift */; };
 		A4CB75391CA533AE005EFC5A /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB75381CA533AE005EFC5A /* OAuthViewController.swift */; };
+		A4DA72BE1CAE89AE0088F382 /* StatusBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA72BD1CAE89AE0088F382 /* StatusBottomBarView.swift */; };
+		A4DA72C01CAE8A920088F382 /* StatusTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA72BF1CAE8A910088F382 /* StatusTopView.swift */; };
+		A4DA72C21CAE8DB90088F382 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA72C11CAE8DB90088F382 /* StatusPictureView.swift */; };
 		A4DB718F1CACC27000557806 /* NSDate+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB718E1CACC27000557806 /* NSDate+Category.swift */; };
 		A4E6DEC41CA26CB9008B3E45 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6DEC31CA26CB9008B3E45 /* UIView+AutoLayout.swift */; };
 		A4E6DEC61CA294C5008B3E45 /* UIBarButtonItem+category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6DEC51CA294C5008B3E45 /* UIBarButtonItem+category.swift */; };
@@ -103,6 +106,9 @@
 		A4AB98A81CA678B800F81328 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A4AB98AA1CA685B600F81328 /* String+category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+category.swift"; sourceTree = "<group>"; };
 		A4CB75381CA533AE005EFC5A /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		A4DA72BD1CAE89AE0088F382 /* StatusBottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBottomBarView.swift; sourceTree = "<group>"; };
+		A4DA72BF1CAE8A910088F382 /* StatusTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTopView.swift; sourceTree = "<group>"; };
+		A4DA72C11CAE8DB90088F382 /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		A4DB718E1CACC27000557806 /* NSDate+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Category.swift"; sourceTree = "<group>"; };
 		A4E6DEC31CA26CB9008B3E45 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		A4E6DEC51CA294C5008B3E45 /* UIBarButtonItem+category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+category.swift"; sourceTree = "<group>"; };
@@ -272,6 +278,9 @@
 				A44D933A1CAA5ECA00419720 /* StatusTableViewCell.swift */,
 				A44D93361CAA304100419720 /* Status.swift */,
 				A44D93381CAA595900419720 /* User.swift */,
+				A4DA72BD1CAE89AE0088F382 /* StatusBottomBarView.swift */,
+				A4DA72BF1CAE8A910088F382 /* StatusTopView.swift */,
+				A4DA72C11CAE8DB90088F382 /* StatusPictureView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -526,16 +535,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DA72C01CAE8A920088F382 /* StatusTopView.swift in Sources */,
 				A44D93391CAA595900419720 /* User.swift in Sources */,
 				A49C5C0D1CA13F8400989FED /* ProfileTableViewController.swift in Sources */,
 				A4DB718F1CACC27000557806 /* NSDate+Category.swift in Sources */,
 				A44D93371CAA304100419720 /* Status.swift in Sources */,
 				A49C5C071CA13F4C00989FED /* HomeTableViewController.swift in Sources */,
 				A425B3751CA3D9A100584784 /* QRCodeViewController.swift in Sources */,
+				A4DA72BE1CAE89AE0088F382 /* StatusBottomBarView.swift in Sources */,
 				A47881201CA3879D005D3193 /* PopoverViewController.swift in Sources */,
 				A451712F1CA8C43C0022D3D2 /* NewFeatureViewController.swift in Sources */,
 				A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */,
 				A451EA2F1CA246ED009320F0 /* BaseTableViewController.swift in Sources */,
+				A4DA72C21CAE8DB90088F382 /* StatusPictureView.swift in Sources */,
 				A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */,
 				A49C5C051CA13F1100989FED /* MainViewController.swift in Sources */,
 				A45171311CA921E40022D3D2 /* WelcomeViewController.swift in Sources */,
