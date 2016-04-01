@@ -114,6 +114,18 @@ class StatusTableViewCell: UITableViewCell {
         bottomBar.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: pictureView, size: CGSize(width: width, height: 44), offset: CGPoint(x: -10, y: 10))
     }
     
+    /**
+     获取行号
+     */
+    func rowHeight(status: Status) -> CGFloat {
+        // 1.为了能够调用didSet, 计算配图的高度
+        self.status = status
+        // 2.强制更新界面
+        self.layoutIfNeeded()
+        
+        // 3.返回底部工具条的最大Y值
+        return CGRectGetMaxY(bottomBar.frame)
+    }
      /// 计算配图尺寸
      private func calculateImageSize() -> (viewSize:CGSize, itemSize:CGSize) {
         // 1.取出配图个数

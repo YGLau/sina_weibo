@@ -114,6 +114,8 @@ class HomeTableViewController: BaseTableViewController {
         presentViewController(vc!, animated: true, completion: nil)
     }
     
+    /// 微博行高的缓存, 利用字典作为容器. key就是微博的id, 值就是对应微博的行高
+    var rowCache: [Int: CGFloat] = [Int: CGFloat] ()
 }
 
 extension HomeTableViewController {
@@ -133,12 +135,32 @@ extension HomeTableViewController {
         return cell
         
     }
-    
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        
-//        
-//        return 200.0
-//    }
+    /**
+     返回行高
+     */
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        // 1.取出对应行的模型
+        let status = statuses![indexPath.row]
+        
+        // 2.判断缓存中有没有
+        if let height = rowCache[status.id]{
+            print("从缓存中获取")
+            return height
+        }
+        
+        // 3.拿到 Cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(YGHomeCellReuseIdentifier) as! StatusTableViewCell
+        // 4.拿到对应行的行高
+        let rowHeight = cell.rowHeight(status)
+        
+        // 5.缓存行高
+        rowCache[status.id] = rowHeight
+        print("重新计算")
+        
+        return rowHeight
+        
+    }
     
     
 }
