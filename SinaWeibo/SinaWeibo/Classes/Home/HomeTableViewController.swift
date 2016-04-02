@@ -37,7 +37,7 @@ class HomeTableViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillDismiss, object: nil)
         
         // 4.注册一个 cell
-        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: YGHomeCellReuseIdentifier)
+        tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: YGHomeCellReuseIdentifier)
         // 去除分割线
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.estimatedRowHeight = 200
@@ -117,7 +117,7 @@ class HomeTableViewController: BaseTableViewController {
     /// 微博行高的缓存, 利用字典作为容器. key就是微博的id, 值就是对应微博的行高
     var rowCache: [Int: CGFloat] = [Int: CGFloat] ()
 }
-
+//MARK: - 数据源方法
 extension HomeTableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -126,7 +126,7 @@ extension HomeTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 获取 Cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(YGHomeCellReuseIdentifier, forIndexPath: indexPath) as! StatusTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(YGHomeCellReuseIdentifier, forIndexPath: indexPath) as! StatusNormalTableViewCell
         // 取出模型
         let status = statuses![indexPath.row]
 //        cell.textLabel?.text = status.text

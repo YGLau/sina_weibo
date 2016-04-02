@@ -103,7 +103,7 @@ class Status: NSObject {
         
         // 2.缓存图片
         for status in list {
-            guard let urls  = status.storedPicURLs else {
+            guard let _  = status.storedPicURLs else {
                 continue
             }
             

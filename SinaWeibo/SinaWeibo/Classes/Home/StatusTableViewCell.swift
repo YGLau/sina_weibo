@@ -13,6 +13,9 @@ class StatusTableViewCell: UITableViewCell {
     // 保存配图的宽和高约束
     var pictureViewWidthCons: NSLayoutConstraint?
     var pictureViewHeightCons: NSLayoutConstraint?
+    // 保存配图顶部约束
+    var pictureViewTopCons: NSLayoutConstraint?
+    
     
     var status: Status? {
         didSet {
@@ -49,7 +52,7 @@ class StatusTableViewCell: UITableViewCell {
     /**
      初始化子控件
      */
-    private func setupWedgets() {
+    func setupWedgets() {
         // 1.添加子控件
         // 顶部
         contentView.addSubview(topView)
@@ -91,7 +94,7 @@ class StatusTableViewCell: UITableViewCell {
     // 顶部View
     private lazy var topView:StatusTopView = StatusTopView()
     // 正文
-    private lazy var contentLabel: UILabel = {
+    lazy var contentLabel: UILabel = {
         let cl = UILabel.createLabel(textColor: UIColor.blackColor(), fontSize: 15.0)
         cl.numberOfLines = 0
         cl.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.size.width - 20
@@ -99,9 +102,9 @@ class StatusTableViewCell: UITableViewCell {
         
     }()
     // 配图
-    private lazy var pictureView:StatusPictureView = StatusPictureView()
+    lazy var pictureView:StatusPictureView = StatusPictureView()
     // 底部工具条
-    private lazy var bottomBar: StatusBottomBarView = StatusBottomBarView()
+    lazy var bottomBar: StatusBottomBarView = StatusBottomBarView()
 
 }
 
