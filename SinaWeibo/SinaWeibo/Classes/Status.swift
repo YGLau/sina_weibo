@@ -82,13 +82,18 @@ class Status: NSObject {
     /**
      *  加载微博数据
      */
-    class func loadStatuses(since_id: Int, finished: (models:[Status]?, error:NSError?) ->()) {
+    class func loadStatuses(since_id: Int, max_id: Int, finished: (models:[Status]?, error:NSError?) ->()) {
         let path = "2/statuses/home_timeline.json"
         var params = ["access_token":UserAccount.loadAccount()!.access_token!]
         
         // 下拉刷新
         if since_id > 0 {
             params["since_id"] = "\(since_id)"
+        }
+        
+        // 上拉刷新
+        if max_id > 0 {
+            params["max_id"] = "\(max_id - 1)"
         }
         
         NetworkTools.shareNetworkTools().GET(path, parameters: params, progress: nil, success: { (_, JSON) in

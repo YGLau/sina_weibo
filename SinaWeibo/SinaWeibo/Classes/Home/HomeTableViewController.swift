@@ -54,14 +54,33 @@ class HomeTableViewController: BaseTableViewController {
         loadData()
         
     }
+    /// 定义变量记录当前是上拉还是下拉
+    var pullupRefreshFlag = false
     /**
      获取微博数据
      */
     @objc private func loadData() {
         
-        let since_id = statuses?.first?.id ?? 0
+        /*
+         1.默认最新返回20条数据
+         2.since_id : 会返回比since_id大的微博
+         3.max_id: 会返回小于等于max_id的微博
+         
+         每条微博都有一个微博ID, 而且微博ID越后面发送的微博, 它的微博ID越大
+         递增
+         
+         新浪返回给我们的微博数据, 是从大到小的返回给我们的
+         */
+ 
+        var since_id = statuses?.first?.id ?? 0
         
-        Status.loadStatuses(since_id) { (models, error) in
+        var max_id = 0
+        if pullupRefreshFlag {
+            since_id = 0
+            max_id = statuses?.last?.id ?? 0
+        }
+ 
+        Status.loadStatuses(since_id, max_id: max_id) { (models, error) in
             // 结束刷新
             self.refreshControl?.endRefreshing()
             if error != nil {
@@ -72,6 +91,9 @@ class HomeTableViewController: BaseTableViewController {
                 self.statuses = models! + self.statuses!
                 // 显示刷新提示
                 self.showNewStatusCount(models?.count ?? 0)
+            } else if max_id > 0{
+                // 如果是上拉加载更多, 就将获取到的数据, 拼接在原有数据的后面
+                self.statuses = self.statuses! + models!
             } else {
                 self.statuses = models
             }
@@ -186,6 +208,14 @@ extension HomeTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status), forIndexPath: indexPath) as! StatusTableViewCell
         // 取出模型
         cell.status = status
+        
+        // 判断是否滚动到最后一个Cell
+        let count = statuses?.count ?? 0
+        if indexPath.row == (count - 1) {
+            pullupRefreshFlag = true
+            loadData()
+        }
+        
         
         return cell
         
