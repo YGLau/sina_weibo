@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tableview_loading" translatesAutoresizingMaskIntoConstraints="NO" id="Zqk-0R-3h2">
-                    <rect key="frame" x="18" y="12" width="36" height="32"/>
+                    <rect key="frame" x="18" y="12" width="36" height="36"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="正在刷新..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjK-oD-Bh6">
                     <rect key="frame" x="74" y="21" width="82" height="21"/>
@@ -45,7 +45,12 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="735" y="398"/>
+            <connections>
+                <outlet property="arrowImage" destination="stY-yL-YHX" id="XSG-zd-wn4"/>
+                <outlet property="loadingView" destination="Zqk-0R-3h2" id="uSm-uv-uvi"/>
+                <outlet property="tipView" destination="7fh-hF-2DO" id="dRE-Nc-w4r"/>
+            </connections>
+            <point key="canvasLocation" x="922" y="476"/>
         </view>
     </objects>
     <resources>
