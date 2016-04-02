@@ -56,11 +56,21 @@ class HomeTableViewController: BaseTableViewController {
      获取微博数据
      */
     @objc private func loadData() {
-        Status.loadStatuses { (models, error) in
+        
+        let since_id = statuses?.first?.id ?? 0
+        
+        Status.loadStatuses(since_id) { (models, error) in
+            // 结束刷新
+            self.refreshControl?.endRefreshing()
             if error != nil {
                 return
             }
-            self.statuses = models
+            if since_id > 0 {
+                // 如果是下拉刷新, 就将获取到的数据, 拼接在原有数据的前面
+                self.statuses = models! + self.statuses!
+            } else {
+                self.statuses = models
+            }
         }
         
     }
