@@ -282,11 +282,11 @@
 				A44D933A1CAA5ECA00419720 /* StatusTableViewCell.swift */,
 				A42DF67A1CAFA97A00909E6B /* StatusForwardTableViewCell.swift */,
 				A42DF67C1CAFB30100909E6B /* StatusNormalTableViewCell.swift */,
-				A44D93361CAA304100419720 /* Status.swift */,
-				A44D93381CAA595900419720 /* User.swift */,
-				A4DA72BD1CAE89AE0088F382 /* StatusBottomBarView.swift */,
 				A4DA72BF1CAE8A910088F382 /* StatusTopView.swift */,
 				A4DA72C11CAE8DB90088F382 /* StatusPictureView.swift */,
+				A4DA72BD1CAE89AE0088F382 /* StatusBottomBarView.swift */,
+				A44D93361CAA304100419720 /* Status.swift */,
+				A44D93381CAA595900419720 /* User.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

@@ -90,10 +90,47 @@ class StatusPictureView: UICollectionView {
         backgroundColor = UIColor.darkGrayColor()
     }
     
+    private class PictureViewCell: UICollectionViewCell {
+        
+        // 定义属性接受外界传来的数据
+        var imageURL:NSURL?
+            {
+            didSet{
+                pictureImageView.sd_setImageWithURL(imageURL!)
+            }
+        }
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            // 初始化子控件
+            setupWedget()
+            
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        /**
+         初始化子控件
+         */
+        private func setupWedget() {
+            
+            // 1.添加子控件
+            contentView.addSubview(pictureImageView)
+            // 2.布局
+            pictureImageView.xmg_Fill(contentView)
+            
+            
+        }
+        // MARK: - 懒加载
+        private lazy var pictureImageView:UIImageView = UIImageView()
+    }
+    
 }
 
-extension StatusPictureView: UICollectionViewDataSource {
 
+extension StatusPictureView: UICollectionViewDataSource {
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return status?.storedPicURLs?.count ?? 0
     }
@@ -107,40 +144,4 @@ extension StatusPictureView: UICollectionViewDataSource {
         return cell
     }
     
-}
-
-private class PictureViewCell: UICollectionViewCell {
-    
-    // 定义属性接受外界传来的数据
-    var imageURL:NSURL?
-        {
-        didSet{
-            pictureImageView.sd_setImageWithURL(imageURL!)
-        }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        // 初始化子控件
-        setupWedget()
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    /**
-     初始化子控件
-     */
-    private func setupWedget() {
-        
-        // 1.添加子控件
-        contentView.addSubview(pictureImageView)
-        // 2.布局
-        pictureImageView.xmg_Fill(contentView)
-        
-        
-    }
-    // MARK: - 懒加载
-    private lazy var pictureImageView:UIImageView = UIImageView()
 }

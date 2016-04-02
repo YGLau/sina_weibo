@@ -29,8 +29,7 @@ class Status: NSObject {
     var source:String?
     {
         didSet{
-            // <a href=\"http://app.weibo.com/t/feed/4fuyNj\" rel=\"nofollow\">即刻笔记</a>
-            // source = "<a href=\"http://weibo.com/\" rel=\"nofollow\">\U5fae\U535a weibo.com</a>"
+            
             // 截取字符串
             if let str = source {
                 if str == "" { // 如果为空直接返回
@@ -68,7 +67,17 @@ class Status: NSObject {
     
     // 用户信息
     var user: User?
+    /**
+     转发微博
+     */
+    var retweeted_status: Status?
     
+    // 如果有转发, 原创就没有配图
+    /// 定义一个计算属性, 用于返回原创获取转发配图的URL数组
+    var pictureURLs: [NSURL]?
+    {
+        return retweeted_status != nil ? retweeted_status?.storedPicURLs : storedPicURLs
+    }
     
     /**
      *  加载微博数据
@@ -103,11 +112,11 @@ class Status: NSObject {
         
         // 2.缓存图片
         for status in list {
-            guard let _  = status.storedPicURLs else {
+            guard let _  = status.pictureURLs else {
                 continue
             }
             
-            for url in status.storedPicURLs! {
+            for url in status.pictureURLs! {
                 // 将当前的下载操作添加到组中
                 dispatch_group_enter(group)
                 
@@ -119,12 +128,8 @@ class Status: NSObject {
             }
         }
         
-        // 2.当所有图片都下载完毕再通过闭包通知调用者
-//        dispatch_group_notify(group, dispatch_get_main_queue()) {
-//            // 能够来到这个地方, 一定是所有图片都下载完毕
-//            finished(models: list, error: nil)
-//        }
-        dispatch_group_notify(group, dispatch_get_main_queue()) { () -> Void in
+         // 2.当所有图片都下载完毕再通过闭包通知调用者
+        dispatch_group_notify(group, dispatch_get_main_queue()) {
             // 能够来到这个地方, 一定是所有图片都下载完毕
             finished(models: list, error: nil)
         }
@@ -159,6 +164,11 @@ class Status: NSObject {
             user = User(dict: value as! [String: AnyObject])
             return
         }
+        // 2.判断是否是转发微博，如果是就自己处理
+        if "retweeted_status" == key {
+            retweeted_status = Status(dict: value as! [String : AnyObject])
+            return
+        }
         // 3,调用父类方法, 按照系统默认处理
         super.setValue(value, forKey: key)
     }
@@ -175,7 +185,6 @@ class Status: NSObject {
         return "\(dict)"
         
     }
-    
     
 
 }

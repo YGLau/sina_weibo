@@ -32,7 +32,6 @@ class WelcomeViewController: UIViewController {
         // 3.设置用户头像
         if let iconUrl = UserAccount.loadAccount()?.avatar_large {
             let url = NSURL(string: iconUrl)!
-            print(url)
             iconView.sd_setImageWithURL(url)
         }
         

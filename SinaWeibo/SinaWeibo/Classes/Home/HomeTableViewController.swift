@@ -36,12 +36,14 @@ class HomeTableViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillDismiss, object: nil)
         
-        // 4.注册一个 cell
-        tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: YGHomeCellReuseIdentifier)
+        // 4.注册两个cell
+        tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
+        tableView.registerClass(StatusForwardTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.ForwardCell.rawValue)
+        
         // 去除分割线
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 200
+//        tableView.rowHeight = UITableViewAutomaticDimension
         
         // 加载数据
         loadData()
@@ -116,6 +118,11 @@ class HomeTableViewController: BaseTableViewController {
     
     /// 微博行高的缓存, 利用字典作为容器. key就是微博的id, 值就是对应微博的行高
     var rowCache: [Int: CGFloat] = [Int: CGFloat] ()
+    
+    override func didReceiveMemoryWarning() {
+        // 青春缓存
+        rowCache.removeAll()
+    }
 }
 //MARK: - 数据源方法
 extension HomeTableViewController {
@@ -126,10 +133,9 @@ extension HomeTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 获取 Cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(YGHomeCellReuseIdentifier, forIndexPath: indexPath) as! StatusNormalTableViewCell
-        // 取出模型
         let status = statuses![indexPath.row]
-//        cell.textLabel?.text = status.text
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status), forIndexPath: indexPath) as! StatusTableViewCell
+        // 取出模型
         cell.status = status
         
         return cell
@@ -149,7 +155,7 @@ extension HomeTableViewController {
         }
         
         // 3.拿到 Cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(YGHomeCellReuseIdentifier) as! StatusTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status)) as! StatusTableViewCell
         // 4.拿到对应行的行高
         let rowHeight = cell.rowHeight(status)
         

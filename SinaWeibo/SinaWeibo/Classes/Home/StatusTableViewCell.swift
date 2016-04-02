@@ -7,6 +7,21 @@
 //
 
 import UIKit
+/**
+ 保存cell的重用标示
+ 
+ - NormalCell:  原创微博的重用标识
+ - ForwardCell: 转发微博的重用标识
+ */
+enum StatusTableViewCellIdentifier: String {
+    case NormalCell = "NormalCell"
+    case ForwardCell = "ForwardCell"
+    
+    static func cellID(status: Status) -> String {
+        
+        return status.retweeted_status != nil ? ForwardCell.rawValue : NormalCell.rawValue
+    }
+}
 
 class StatusTableViewCell: UITableViewCell {
     
@@ -25,12 +40,14 @@ class StatusTableViewCell: UITableViewCell {
             contentLabel.text = status?.text
             
             // 设置配图尺寸
-            pictureView.status = status
+            pictureView.status = status?.retweeted_status != nil ? status?.retweeted_status : status
+            
             //1.1 根据模型计算配图尺寸
             let size = pictureView.calculateImageSize()
             //1.2 设置配图的尺寸
             pictureViewWidthCons?.constant = size.width
             pictureViewHeightCons?.constant = size.height
+            pictureViewTopCons?.constant = size.height == 0 ? 0 : 10
             
         }
     }
@@ -68,10 +85,6 @@ class StatusTableViewCell: UITableViewCell {
         // topView
         topView.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSize(width: width, height: 60))
         contentLabel.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: topView, size: nil, offset: CGPoint(x: 10, y: 10))
-        // 配图
-        let cons = pictureView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: contentLabel, size: CGSizeZero, offset: CGPoint(x: 0, y: 10))
-        pictureViewWidthCons = pictureView.xmg_Constraint(cons, attribute: NSLayoutAttribute.Width)
-        pictureViewHeightCons = pictureView.xmg_Constraint(cons, attribute: NSLayoutAttribute.Height)
         // 底部
         bottomBar.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: pictureView, size: CGSize(width: width, height: 35), offset: CGPoint(x: -10, y: 10))
     }
