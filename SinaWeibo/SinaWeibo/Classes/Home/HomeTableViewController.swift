@@ -42,11 +42,11 @@ class HomeTableViewController: BaseTableViewController {
         
         // 5.添加下拉刷新控件
         refreshControl = HomeRefreshControl()
+        // 添加监听
+        refreshControl?.addTarget(self, action: #selector(loadData), forControlEvents: UIControlEvents.ValueChanged)
         
         // 去除分割线
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-//        tableView.estimatedRowHeight = 200
-//        tableView.rowHeight = UITableViewAutomaticDimension
         
         // 加载数据
         loadData()
@@ -55,7 +55,7 @@ class HomeTableViewController: BaseTableViewController {
     /**
      获取微博数据
      */
-    private func loadData() {
+    @objc private func loadData() {
         Status.loadStatuses { (models, error) in
             if error != nil {
                 return
