@@ -22,6 +22,8 @@ class HomeTableViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // 1.如果没有登录, 就设置未登录界面的信息
         if !userLogin
         {
@@ -68,11 +70,32 @@ class HomeTableViewController: BaseTableViewController {
             if since_id > 0 {
                 // 如果是下拉刷新, 就将获取到的数据, 拼接在原有数据的前面
                 self.statuses = models! + self.statuses!
+                // 显示刷新提示
+                self.showNewStatusCount(models?.count ?? 0)
             } else {
                 self.statuses = models
             }
         }
         
+    }
+    
+    private func showNewStatusCount(count: Int) {
+        newStatusLabel.hidden = false
+        newStatusLabel.text = (count == 0) ? "没有刷新到新的微博数据" : "刷新到\(count)条微博数据"
+        UIView.animateWithDuration(1, animations: {
+            
+            self.newStatusLabel.transform = CGAffineTransformMakeTranslation(0, self.newStatusLabel.frame.height)
+            
+            }) { (_) in
+                UIView.animateWithDuration(1, animations: {
+                    // 清空
+                    self.newStatusLabel.transform = CGAffineTransformIdentity
+                    }, completion: { (_) in
+                        
+                        self.newStatusLabel.hidden = true
+                        
+                })
+        }
     }
     
     func notificationChange() {
@@ -93,7 +116,7 @@ class HomeTableViewController: BaseTableViewController {
         // 2.中间的 view
         navigationItem.titleView = titleView
     }
-
+    //MARK: - 懒加载
     private lazy var titleView:titleButton = {
         let titleBtn = titleButton()
         titleBtn.setTitle("首页标题 ", forState: UIControlState.Normal)
@@ -101,6 +124,19 @@ class HomeTableViewController: BaseTableViewController {
         titleBtn.addTarget(self, action: #selector(titleBtnClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         return titleBtn
+    }()
+    // 刷新提醒控件
+    private lazy var newStatusLabel: UILabel = {
+        let label = UILabel()
+        let height:CGFloat = 44
+        label.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: height)
+        label.backgroundColor = UIColor.orangeColor()
+        label.font = UIFont.systemFontOfSize(14.0)
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = NSTextAlignment.Center
+        self.navigationController?.navigationBar.insertSubview(label, atIndex: 0)
+        label.hidden = true
+        return label
     }()
     
     func titleBtnClick(btn:titleButton)
