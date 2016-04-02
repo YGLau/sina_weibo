@@ -52,9 +52,14 @@ class Status: NSObject {
             storedPicURLs = [NSURL]()
             // 遍历配图数组,取出所有图片的路径
             for dict in pic_urls! {
-                if let urlStr = dict["thumbnail_pic"] {
-                    // 将字符串转为 url 保存到数组中
-                    storedPicURLs?.append(NSURL(string: urlStr as! String)!)
+                if let urlStr = dict["thumbnail_pic"] as? String {
+                    // 1.将字符串转为 url 保存到数组中
+                    storedPicURLs?.append(NSURL(string: urlStr)!)
+                    
+                    // 2.处理大图
+                    let largeURLStr = urlStr.stringByReplacingOccurrencesOfString("thumbnail", withString: "large")
+                    storedLargePicURLs?.append(NSURL(string: largeURLStr)!)
+                    
                 }
             }
             
@@ -64,6 +69,9 @@ class Status: NSObject {
      保存当前微博所有的配图的 url
      */
     var storedPicURLs: [NSURL]?
+    
+     /// 保存当前所有配图“大图”的url
+    var storedLargePicURLs:[NSURL]?
     
     // 用户信息
     var user: User?
@@ -77,6 +85,12 @@ class Status: NSObject {
     var pictureURLs: [NSURL]?
     {
         return retweeted_status != nil ? retweeted_status?.storedPicURLs : storedPicURLs
+    }
+    
+    /// 定义一个计算属性, 用于返回原创或者转发配图的大图URL数组
+    var largePictureURLs: [NSURL]?
+    {
+        return retweeted_status != nil ? retweeted_status?.storedLargePicURLs : storedLargePicURLs
     }
     
     /**
@@ -116,6 +130,11 @@ class Status: NSObject {
      缓存配图
      */
     class func cacheStatusImage(list: [Status], finished: (models: [Status]?, error:NSError?) -> ()) {
+        
+        if list.count == 0 {
+            finished(models: list, error: nil)
+            return
+        }
         
         // 1.创建一个组
         let group = dispatch_group_create()
