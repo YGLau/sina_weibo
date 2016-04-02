@@ -13,6 +13,8 @@
 		A42BE7551CA617FB00A93EB1 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */; };
 		A42DF67B1CAFA97A00909E6B /* StatusForwardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42DF67A1CAFA97A00909E6B /* StatusForwardTableViewCell.swift */; };
 		A42DF67D1CAFB30100909E6B /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42DF67C1CAFB30100909E6B /* StatusNormalTableViewCell.swift */; };
+		A42DF67F1CAFDE1800909E6B /* HomeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42DF67E1CAFDE1800909E6B /* HomeRefreshControl.swift */; };
+		A42DF6811CAFDE3600909E6B /* HomeRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42DF6801CAFDE3600909E6B /* HomeRefreshView.xib */; };
 		A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44100771CA2B5BC0076C374 /* titleButton.swift */; };
 		A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */; };
 		A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B31CA51C5A004595FC /* TestViewController.swift */; };
@@ -74,6 +76,8 @@
 		A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		A42DF67A1CAFA97A00909E6B /* StatusForwardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusForwardTableViewCell.swift; sourceTree = "<group>"; };
 		A42DF67C1CAFB30100909E6B /* StatusNormalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusNormalTableViewCell.swift; sourceTree = "<group>"; };
+		A42DF67E1CAFDE1800909E6B /* HomeRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshControl.swift; sourceTree = "<group>"; };
+		A42DF6801CAFDE3600909E6B /* HomeRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeRefreshView.xib; sourceTree = "<group>"; };
 		A44100771CA2B5BC0076C374 /* titleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = titleButton.swift; sourceTree = "<group>"; };
 		A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCardViewController.swift; sourceTree = "<group>"; };
 		A44BF7B31CA51C5A004595FC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 				A4DA72BD1CAE89AE0088F382 /* StatusBottomBarView.swift */,
 				A44D93361CAA304100419720 /* Status.swift */,
 				A44D93381CAA595900419720 /* User.swift */,
+				A42DF67E1CAFDE1800909E6B /* HomeRefreshControl.swift */,
+				A42DF6801CAFDE3600909E6B /* HomeRefreshView.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -467,6 +473,7 @@
 			files = (
 				A478811E1CA3859E005D3193 /* PopoverViewController.storyboard in Resources */,
 				A451EA2C1CA2335F009320F0 /* MainVCSettings.json in Resources */,
+				A42DF6811CAFDE3600909E6B /* HomeRefreshView.xib in Resources */,
 				A49C5BD01CA136B900989FED /* Assets.xcassets in Resources */,
 				A425B3731CA3D43D00584784 /* QRCodeViewController.storyboard in Resources */,
 			);
@@ -569,6 +576,7 @@
 				A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */,
 				A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */,
 				A4AB98AB1CA685B600F81328 /* String+category.swift in Sources */,
+				A42DF67F1CAFDE1800909E6B /* HomeRefreshControl.swift in Sources */,
 				A44D93431CAA7AAB00419720 /* UILabel+Category.swift in Sources */,
 				A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */,
 				A44D93451CAA7D9500419720 /* UIButton+Category.swift in Sources */,

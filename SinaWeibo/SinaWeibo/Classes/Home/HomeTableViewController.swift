@@ -40,6 +40,9 @@ class HomeTableViewController: BaseTableViewController {
         tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
         tableView.registerClass(StatusForwardTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.ForwardCell.rawValue)
         
+        // 5.添加下拉刷新控件
+        refreshControl = HomeRefreshControl()
+        
         // 去除分割线
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 //        tableView.estimatedRowHeight = 200
@@ -120,7 +123,7 @@ class HomeTableViewController: BaseTableViewController {
     var rowCache: [Int: CGFloat] = [Int: CGFloat] ()
     
     override func didReceiveMemoryWarning() {
-        // 青春缓存
+        // 清除缓存
         rowCache.removeAll()
     }
 }
