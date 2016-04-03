@@ -97,7 +97,14 @@ class StatusPictureView: UICollectionView {
         var imageURL:NSURL?
             {
             didSet{
+                // 1.设置图片
                 pictureImageView.sd_setImageWithURL(imageURL!)
+                // 2.判断图片是否为gif
+                if ((imageURL?.absoluteString)! as NSString).pathExtension.lowercaseString == "gif" {
+                    
+                    gifImageView.hidden = false
+                }
+                
             }
         }
         
@@ -118,13 +125,21 @@ class StatusPictureView: UICollectionView {
             
             // 1.添加子控件
             contentView.addSubview(pictureImageView)
+            pictureImageView.addSubview(gifImageView)
             // 2.布局
             pictureImageView.xmg_Fill(contentView)
+            gifImageView.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: pictureImageView, size: nil)
             
             
         }
         // MARK: - 懒加载
         private lazy var pictureImageView:UIImageView = UIImageView()
+        // gif
+        private lazy var gifImageView: UIImageView = {
+            let gif = UIImageView(image: UIImage(named: "timeline_image_gif"))
+            gif.hidden = true
+            return gif
+        }()
     }
     
 }
