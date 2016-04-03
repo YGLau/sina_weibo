@@ -96,6 +96,7 @@ class PhotoBrowserCell: UICollectionViewCell {
         scrollView.frame = UIScreen.mainScreen().bounds
         activity.center = contentView.center
         
+        
         // 3.处理缩放
         scrollView.delegate = self
         scrollView.maximumZoomScale = 2.0
@@ -112,7 +113,7 @@ class PhotoBrowserCell: UICollectionViewCell {
     }
     //MARK: - 懒加载
     // 图片
-    private lazy var pictureView: UIImageView = UIImageView()
+    lazy var pictureView: UIImageView = UIImageView()
     private lazy var scrollView: UIScrollView = UIScrollView()
     private lazy var activity: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     
@@ -135,7 +136,6 @@ extension PhotoBrowserCell: UIScrollViewDelegate {
         offsetY = offsetY < 0 ? 0 : offsetY
         
         scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: offsetY, right: offsetX)
-        
         
     }
 }
