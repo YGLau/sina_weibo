@@ -14,12 +14,23 @@ class PhotoBrowserCell: UICollectionViewCell {
     var imageURL: NSURL?
     {
         didSet{
+            
+            reset()
+            
             pictureView.sd_setImageWithURL(imageURL) { (image, _, _, _) in
-//                let size = self.disPlaySize(image)
-//                self.pictureView.frame = CGRect(origin: CGPointZero, size: size)
+                
                 self.setImageViewPosition()
             }
         }
+    }
+    /**
+     重置scrollView的一些属性
+     */
+    private func reset() {
+        scrollView.contentInset = UIEdgeInsetsZero
+        scrollView.contentOffset = CGPointZero
+        scrollView.contentSize = CGSizeZero
+        pictureView.transform = CGAffineTransformIdentity
     }
     
     /**
@@ -46,10 +57,8 @@ class PhotoBrowserCell: UICollectionViewCell {
     }
     
     private func disPlaySize(image: UIImage) -> CGSize {
-        // 1.拿到图片的宽高比
-//        let scale = image.size.width / image.size.height
         
-        // 2.根据宽高比计算高度
+        // 根据宽高比计算高度
         let width = UIScreen.mainScreen().bounds.size.width
         let height = width * image.size.height / image.size.width
         return CGSize(width: width, height: height)
@@ -72,6 +81,11 @@ class PhotoBrowserCell: UICollectionViewCell {
         scrollView.addSubview(pictureView)
         // 2.布局
         scrollView.frame = UIScreen.mainScreen().bounds
+        
+        // 3.处理缩放
+        scrollView.delegate = self
+        scrollView.maximumZoomScale = 2.0
+        scrollView.minimumZoomScale = 0.5
     }
     
     //MARK: - 懒加载
@@ -81,5 +95,24 @@ class PhotoBrowserCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension PhotoBrowserCell: UIScrollViewDelegate {
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        
+        return pictureView
+    }
+    
+    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
+        
+        var offsetX = (UIScreen.mainScreen().bounds.width - (view?.frame.size.width)!) * 0.5
+        var offsetY = (UIScreen.mainScreen().bounds.height - (view?.frame.size.height)!) * 0.5
+        offsetX = offsetX < 0 ? 0 : offsetX
+        offsetY = offsetY < 0 ? 0 : offsetY
+        
+        scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: offsetY, right: offsetX)
+        
+        
     }
 }
