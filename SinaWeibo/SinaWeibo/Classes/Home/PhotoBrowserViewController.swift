@@ -75,7 +75,7 @@ class PhotoBrowserViewController: UIViewController {
 
 }
 
-extension PhotoBrowserViewController: UICollectionViewDataSource {
+extension PhotoBrowserViewController: UICollectionViewDataSource, photoBrowserCellDelegateProtocol {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -88,7 +88,13 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoBrowserCellReuseIdentifier, forIndexPath: indexPath) as! PhotoBrowserCell
         cell.imageURL = pictureURLs![indexPath.item]
         cell.backgroundColor = UIColor.randomColor()
+        cell.photoBrowserCellDelegate = self
         return cell
+    }
+    
+    func photoBrowserCellDidClick(cell: PhotoBrowserCell) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
@@ -104,5 +110,7 @@ class photoBrowserLayout: UICollectionViewFlowLayout {
         collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.bounces = false
     }
+    
+    
     
 }

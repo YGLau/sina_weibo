@@ -9,7 +9,14 @@
 import UIKit
 import SDWebImage
 
+protocol photoBrowserCellDelegateProtocol: NSObjectProtocol {
+    
+    func photoBrowserCellDidClick(cell: PhotoBrowserCell)
+}
+
 class PhotoBrowserCell: UICollectionViewCell {
+    
+    weak var photoBrowserCellDelegate: photoBrowserCellDelegateProtocol?
     
     var imageURL: NSURL?
     {
@@ -93,8 +100,16 @@ class PhotoBrowserCell: UICollectionViewCell {
         scrollView.delegate = self
         scrollView.maximumZoomScale = 2.0
         scrollView.minimumZoomScale = 0.5
+        
+        //4.监听图片点击
+        pictureView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closeVc)))
+        pictureView.userInteractionEnabled = true
     }
     
+    func closeVc() {
+//        print(#function)
+        photoBrowserCellDelegate?.photoBrowserCellDidClick(self)
+    }
     //MARK: - 懒加载
     // 图片
     private lazy var pictureView: UIImageView = UIImageView()
