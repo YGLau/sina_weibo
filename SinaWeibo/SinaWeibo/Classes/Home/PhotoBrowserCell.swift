@@ -14,10 +14,15 @@ class PhotoBrowserCell: UICollectionViewCell {
     var imageURL: NSURL?
     {
         didSet{
-            
+            // 1.重置属性
             reset()
             
+            // 2.显示菊花
+            activity.startAnimating()
+            
             pictureView.sd_setImageWithURL(imageURL) { (image, _, _, _) in
+                // 3.隐藏菊花
+                self.activity.stopAnimating()
                 
                 self.setImageViewPosition()
             }
@@ -79,8 +84,10 @@ class PhotoBrowserCell: UICollectionViewCell {
         contentView.addSubview(scrollView)
         // 将图片添加到scrollView上
         scrollView.addSubview(pictureView)
+        contentView.addSubview(activity)
         // 2.布局
         scrollView.frame = UIScreen.mainScreen().bounds
+        activity.center = contentView.center
         
         // 3.处理缩放
         scrollView.delegate = self
@@ -92,6 +99,7 @@ class PhotoBrowserCell: UICollectionViewCell {
     // 图片
     private lazy var pictureView: UIImageView = UIImageView()
     private lazy var scrollView: UIScrollView = UIScrollView()
+    private lazy var activity: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
