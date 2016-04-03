@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let photoBrowserCellReuseIdentifier = "pictureCell"
+
 class PhotoBrowserViewController: UIViewController {
     
     
@@ -41,9 +43,14 @@ class PhotoBrowserViewController: UIViewController {
         view.addSubview(closeBtn)
         view.addSubview(saveBtn)
         // 2.布局
-        closeBtn.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSize(width: 100, height: 30), offset: CGPoint(x: 10, y: -10))
-        saveBtn.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: view, size: CGSize(width: 100, height: 30), offset: CGPoint(x: -10, y: -10))
+        closeBtn.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSize(width: 100, height: 35), offset: CGPoint(x: 10, y: -10))
+        saveBtn.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: view, size: CGSize(width: 100, height: 35), offset: CGPoint(x: -10, y: -10))
         collectionView.frame = UIScreen.mainScreen().bounds
+        
+        // 3.设置数据源
+        collectionView.dataSource = self
+        // 注册cell
+        collectionView.registerClass(PhotoBrowserCell.self, forCellWithReuseIdentifier: photoBrowserCellReuseIdentifier)
     }
     
     func closeBtnClick() {
@@ -63,7 +70,39 @@ class PhotoBrowserViewController: UIViewController {
         let btn = UIButton.createPhotoBrowserButton(withTitle: "保存", target: self, action: #selector(saveBtnClick), forControlEvents: UIControlEvents.TouchUpInside)
         return btn
     }()
-    private lazy var collectionView: UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+    private lazy var collectionView: UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: photoBrowserLayout())
     
 
+}
+
+extension PhotoBrowserViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return pictureURLs?.count ?? 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        // 1.取出Cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoBrowserCellReuseIdentifier, forIndexPath: indexPath) as! PhotoBrowserCell
+        cell.imageURL = pictureURLs![indexPath.item]
+        cell.backgroundColor = UIColor.randomColor()
+        return cell
+    }
+}
+
+class photoBrowserLayout: UICollectionViewFlowLayout {
+    
+    override func prepareLayout() {
+        itemSize = UIScreen.mainScreen().bounds.size
+        minimumLineSpacing = 0
+        minimumInteritemSpacing = 0
+        scrollDirection = UICollectionViewScrollDirection.Horizontal
+        
+        collectionView?.pagingEnabled = true
+        collectionView?.showsHorizontalScrollIndicator = false
+        collectionView?.bounces = false
+    }
+    
 }

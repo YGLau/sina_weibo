@@ -16,6 +16,8 @@
 		A42DF67D1CAFB30100909E6B /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42DF67C1CAFB30100909E6B /* StatusNormalTableViewCell.swift */; };
 		A42DF67F1CAFDE1800909E6B /* HomeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42DF67E1CAFDE1800909E6B /* HomeRefreshControl.swift */; };
 		A42DF6811CAFDE3600909E6B /* HomeRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42DF6801CAFDE3600909E6B /* HomeRefreshView.xib */; };
+		A43A13901CB1003800D564A0 /* PhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43A138F1CB1003800D564A0 /* PhotoBrowserCell.swift */; };
+		A43A13921CB1061400D564A0 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43A13911CB1061400D564A0 /* UIColor+Category.swift */; };
 		A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44100771CA2B5BC0076C374 /* titleButton.swift */; };
 		A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */; };
 		A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BF7B31CA51C5A004595FC /* TestViewController.swift */; };
@@ -80,6 +82,8 @@
 		A42DF67C1CAFB30100909E6B /* StatusNormalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusNormalTableViewCell.swift; sourceTree = "<group>"; };
 		A42DF67E1CAFDE1800909E6B /* HomeRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshControl.swift; sourceTree = "<group>"; };
 		A42DF6801CAFDE3600909E6B /* HomeRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeRefreshView.xib; sourceTree = "<group>"; };
+		A43A138F1CB1003800D564A0 /* PhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCell.swift; sourceTree = "<group>"; };
+		A43A13911CB1061400D564A0 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		A44100771CA2B5BC0076C374 /* titleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = titleButton.swift; sourceTree = "<group>"; };
 		A44BF7B11CA4E8A5004595FC /* QRCodeCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCardViewController.swift; sourceTree = "<group>"; };
 		A44BF7B31CA51C5A004595FC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				A4085A511CB0B7930094FBB5 /* PhotoBrowserViewController.swift */,
+				A43A138F1CB1003800D564A0 /* PhotoBrowserCell.swift */,
 			);
 			name = PhotoBrowser;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */,
 				A4AB98AA1CA685B600F81328 /* String+category.swift */,
 				A4DB718E1CACC27000557806 /* NSDate+Category.swift */,
+				A43A13911CB1061400D564A0 /* UIColor+Category.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -574,12 +580,14 @@
 				A4DA72C21CAE8DB90088F382 /* StatusPictureView.swift in Sources */,
 				A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */,
 				A49C5C051CA13F1100989FED /* MainViewController.swift in Sources */,
+				A43A13921CB1061400D564A0 /* UIColor+Category.swift in Sources */,
 				A45171311CA921E40022D3D2 /* WelcomeViewController.swift in Sources */,
 				A49C5C0B1CA13F7A00989FED /* MessageTableViewController.swift in Sources */,
 				A4E6DEC41CA26CB9008B3E45 /* UIView+AutoLayout.swift in Sources */,
 				A4085A521CB0B7930094FBB5 /* PhotoBrowserViewController.swift in Sources */,
 				A49C5C091CA13F6800989FED /* DiscoverTableViewController.swift in Sources */,
 				A451EA311CA247DE009320F0 /* VisitorView.swift in Sources */,
+				A43A13901CB1003800D564A0 /* PhotoBrowserCell.swift in Sources */,
 				A42BE7551CA617FB00A93EB1 /* NetworkTools.swift in Sources */,
 				A4CB75391CA533AE005EFC5A /* OAuthViewController.swift in Sources */,
 				A44D933B1CAA5ECA00419720 /* StatusTableViewCell.swift in Sources */,
