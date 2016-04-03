@@ -50,6 +50,7 @@ class Status: NSObject {
         didSet{
             // 初始化数组
             storedPicURLs = [NSURL]()
+            storedLargePicURLs = [NSURL]()
             // 遍历配图数组,取出所有图片的路径
             for dict in pic_urls! {
                 if let urlStr = dict["thumbnail_pic"] as? String {

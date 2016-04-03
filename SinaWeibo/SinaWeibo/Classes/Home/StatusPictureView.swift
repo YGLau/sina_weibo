@@ -83,6 +83,7 @@ class StatusPictureView: UICollectionView {
         registerClass(PictureViewCell.self, forCellWithReuseIdentifier: YGPictureViewCell)
         // 2.设置数据源
         dataSource = self
+        delegate = self
         // 3.设置 cell之间的间隙
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
@@ -127,9 +128,15 @@ class StatusPictureView: UICollectionView {
     }
     
 }
+/// 图片被选中的通知
+let YGStatusSelectedPictureNotification = "YGStatusSelectedPictureNotification"
+/// 选中图片对应的索引
+let YGStatusPictureindexKey = "YGStatusPictureindexKey"
+/// 需要展示的图片对应的key
+let YGStatusPictureURLsKey = "YGStatusPictureURLsKey"
 
-
-extension StatusPictureView: UICollectionViewDataSource {
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+extension StatusPictureView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return status?.storedPicURLs?.count ?? 0
@@ -143,5 +150,17 @@ extension StatusPictureView: UICollectionViewDataSource {
         // 3.返回 cell
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+//        print(indexPath)
+//        print(indexPath.item)
+//        print(status?.storedLargePicURLs![indexPath.item])
+        
+         /// 发通知，告诉控制器，我被点了
+        let info = [YGStatusPictureindexKey : indexPath, YGStatusPictureURLsKey : status!.storedLargePicURLs!]
+        NSNotificationCenter.defaultCenter().postNotificationName(YGStatusSelectedPictureNotification, object: self, userInfo: info)
+    }
+    
     
 }

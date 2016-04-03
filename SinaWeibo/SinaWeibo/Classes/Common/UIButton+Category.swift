@@ -21,4 +21,14 @@ extension UIButton {
         
     }
     
+    class func createPhotoBrowserButton(withTitle title:String, target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents) -> UIButton {
+        let btn = UIButton()
+        btn.setTitle(title, forState: UIControlState.Normal)
+        btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        btn.backgroundColor = UIColor.darkGrayColor()
+        btn.addTarget(target, action: action, forControlEvents: controlEvents)
+        return btn
+        
+    }
+
 }

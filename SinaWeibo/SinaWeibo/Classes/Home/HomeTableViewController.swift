@@ -38,6 +38,9 @@ class HomeTableViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(notificationChange), name: PopoverAnimatorWillDismiss, object: nil)
         
+        // 图片点击通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showBigPicture), name: YGStatusSelectedPictureNotification, object: nil)
+        
         // 4.注册两个cell
         tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
         tableView.registerClass(StatusForwardTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.ForwardCell.rawValue)
@@ -53,6 +56,25 @@ class HomeTableViewController: BaseTableViewController {
         // 加载数据
         loadData()
         
+    }
+    
+    func showBigPicture(notification: NSNotification) {
+        
+//        print(notification)
+        // 判断通知是否有数据
+        guard let indexPath = notification.userInfo![YGStatusPictureindexKey] as? NSIndexPath else {
+            print("没有indexPath")
+            return
+        }
+        guard let urls = notification.userInfo![YGStatusPictureURLsKey] as? [NSURL] else {
+            print("没有URL")
+            return
+        }
+        // 1.创建大图控制器
+        let vc = PhotoBrowserViewController(index: indexPath.item, urls: urls)
+        // 2.显示大图控制器
+        presentViewController(vc, animated: true, completion: nil)
+
     }
     /// 定义变量记录当前是上拉还是下拉
     var pullupRefreshFlag = false

@@ -51,19 +51,19 @@ class HomeRefreshControl: UIRefreshControl {
         }
         // 判断是否已经触发刷新事件
         if refreshing && !loadingViewAnimFlag {
-            print("圈圈动画")
+//            print("圈圈动画")
             loadingViewAnimFlag = true
             // 显示圈圈，并且执行动画
             refreshView.startLoadingViewAnim()
         }
         if frame.origin.y >= -50 && rotationArrowFlag{
-            print("翻转回来")
+//            print("翻转回来")
             rotationArrowFlag = false
             refreshView.rotationArrowImage(rotationArrowFlag)
             
         }
         else if frame.origin.y <= -50 && !rotationArrowFlag {
-            print("翻转")
+//            print("翻转")
             rotationArrowFlag = true
             refreshView.rotationArrowImage(rotationArrowFlag)
         }

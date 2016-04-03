@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32AEB2B3BEF622AB3FDFD12B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC268968C1BE63ED2845075C /* Pods.framework */; };
+		A4085A521CB0B7930094FBB5 /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4085A511CB0B7930094FBB5 /* PhotoBrowserViewController.swift */; };
 		A425B3731CA3D43D00584784 /* QRCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */; };
 		A425B3751CA3D9A100584784 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A425B3741CA3D9A100584784 /* QRCodeViewController.swift */; };
 		A42BE7551CA617FB00A93EB1 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A4085A511CB0B7930094FBB5 /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCodeViewController.storyboard; sourceTree = "<group>"; };
 		A425B3741CA3D9A100584784 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
@@ -151,6 +153,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4085A501CB0B7560094FBB5 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				A4085A511CB0B7930094FBB5 /* PhotoBrowserViewController.swift */,
+			);
+			name = PhotoBrowser;
+			sourceTree = "<group>";
+		};
 		A425B3711CA3D41000584784 /* QRCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +290,7 @@
 		A49C5BF91CA13CD600989FED /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A4085A501CB0B7560094FBB5 /* PhotoBrowser */,
 				A425B3711CA3D41000584784 /* QRCode */,
 				A478811C1CA38565005D3193 /* Popover */,
 				A49C5C061CA13F4C00989FED /* HomeTableViewController.swift */,
@@ -566,6 +577,7 @@
 				A45171311CA921E40022D3D2 /* WelcomeViewController.swift in Sources */,
 				A49C5C0B1CA13F7A00989FED /* MessageTableViewController.swift in Sources */,
 				A4E6DEC41CA26CB9008B3E45 /* UIView+AutoLayout.swift in Sources */,
+				A4085A521CB0B7930094FBB5 /* PhotoBrowserViewController.swift in Sources */,
 				A49C5C091CA13F6800989FED /* DiscoverTableViewController.swift in Sources */,
 				A451EA311CA247DE009320F0 /* VisitorView.swift in Sources */,
 				A42BE7551CA617FB00A93EB1 /* NetworkTools.swift in Sources */,
