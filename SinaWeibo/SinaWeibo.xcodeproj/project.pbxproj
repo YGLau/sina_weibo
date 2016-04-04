@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		32AEB2B3BEF622AB3FDFD12B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC268968C1BE63ED2845075C /* Pods.framework */; };
 		A4085A521CB0B7930094FBB5 /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4085A511CB0B7930094FBB5 /* PhotoBrowserViewController.swift */; };
+		A408D87D1CB24D3000B534BB /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408D87C1CB24D3000B534BB /* ComposeViewController.swift */; };
 		A425B3731CA3D43D00584784 /* QRCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */; };
 		A425B3751CA3D9A100584784 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A425B3741CA3D9A100584784 /* QRCodeViewController.swift */; };
 		A42BE7551CA617FB00A93EB1 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		A4085A511CB0B7930094FBB5 /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
+		A408D87C1CB24D3000B534BB /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCodeViewController.storyboard; sourceTree = "<group>"; };
 		A425B3741CA3D9A100584784 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
@@ -164,6 +166,14 @@
 				A43A138F1CB1003800D564A0 /* PhotoBrowserCell.swift */,
 			);
 			name = PhotoBrowser;
+			sourceTree = "<group>";
+		};
+		A408D87B1CB24D1300B534BB /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				A408D87C1CB24D3000B534BB /* ComposeViewController.swift */,
+			);
+			name = Compose;
 			sourceTree = "<group>";
 		};
 		A425B3711CA3D41000584784 /* QRCode */ = {
@@ -260,6 +270,7 @@
 		A49C5BF61CA13CD600989FED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A408D87B1CB24D1300B534BB /* Compose */,
 				A451712B1CA8C3A60022D3D2 /* New Feature */,
 				A4CB75371CA53364005EFC5A /* OAuth */,
 				A49C5BF71CA13CD600989FED /* Common */,
@@ -600,6 +611,7 @@
 				A44D93431CAA7AAB00419720 /* UILabel+Category.swift in Sources */,
 				A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */,
 				A44D93451CAA7D9500419720 /* UIButton+Category.swift in Sources */,
+				A408D87D1CB24D3000B534BB /* ComposeViewController.swift in Sources */,
 				A47881221CA38E30005D3193 /* PopoverPresentationController.swift in Sources */,
 				A42DF67B1CAFA97A00909E6B /* StatusForwardTableViewCell.swift in Sources */,
 				A4AB98A91CA678B800F81328 /* UserAccount.swift in Sources */,

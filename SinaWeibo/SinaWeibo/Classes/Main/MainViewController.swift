@@ -40,7 +40,9 @@ class MainViewController: UITabBarController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         super.viewWillAppear(animated)
+        
         // 设置加号按钮
         setupComposeBtn()
         
@@ -100,6 +102,10 @@ class MainViewController: UITabBarController {
     }()
     // MARK: - 加号按钮点击
     func addBtnClick() {
+        
+        let cpsVc = ComposeViewController()
+        let nav = UINavigationController(rootViewController: cpsVc)
+        presentViewController(nav, animated: true, completion: nil)
         
         
     }
