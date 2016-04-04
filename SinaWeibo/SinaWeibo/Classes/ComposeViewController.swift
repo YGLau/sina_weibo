@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ComposeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // 1.初始化导航条
         setupNav()
@@ -69,6 +69,20 @@ class ComposeViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     func sendStatus() {
+        let path = "2/statuses/update.json"
+        let params = ["access_token": UserAccount.loadAccount()?.access_token, "status": textView.text]
+        
+        NetworkTools.shareNetworkTools().POST(path, parameters: params, progress: nil, success: { (_, JSON) in
+            
+//            print(JSON)
+            SVProgressHUD.showSuccessWithStatus("发送成功666...!")
+            self.closeVc()
+            
+            }) { (_, error) in
+                
+//                print(error)
+                SVProgressHUD.showErrorWithStatus("居然发送失败了？")
+        }
         
     }
     /**
@@ -97,7 +111,7 @@ class ComposeViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFontOfSize(13)
         label.textColor = UIColor.lightGrayColor()
-        label.text = "分享新鲜事"
+        label.text = "分享新鲜事..."
         return label
     }()
 
