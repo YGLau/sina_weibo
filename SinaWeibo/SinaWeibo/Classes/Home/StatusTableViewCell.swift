@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KILabel
 /**
  保存cell的重用标示
  
@@ -108,8 +109,11 @@ class StatusTableViewCell: UITableViewCell {
     // 顶部View
     private lazy var topView:StatusTopView = StatusTopView()
     // 正文
-    lazy var contentLabel: UILabel = {
-        let cl = UILabel.createLabel(textColor: UIColor.blackColor(), fontSize: 15.0)
+    lazy var contentLabel: KILabel = {
+//        let cl = UILabel.createLabel(textColor: UIColor.blackColor(), fontSize: 15.0)
+        let cl = KILabel()
+        cl.textColor = UIColor.darkGrayColor()
+        cl.font = UIFont.systemFontOfSize(15)
         cl.numberOfLines = 0
         cl.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.size.width - 20
         return cl

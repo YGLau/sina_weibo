@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KILabel
 
 class StatusForwardTableViewCell: StatusTableViewCell {
     
@@ -18,8 +19,7 @@ class StatusForwardTableViewCell: StatusTableViewCell {
         didSet{
             let name = status?.retweeted_status?.user?.name ?? ""
             let text = status?.retweeted_status?.text ?? ""
-//            forwardLabel.text = name + ": " + text
-            forwardLabel.attributedText = EmoticonPackage.emoticonString(name + ": " + text)
+            forwardLabel.attributedText = EmoticonPackage.emoticonString("@" + name + ": " + text)
             
         }
     }
@@ -56,8 +56,11 @@ class StatusForwardTableViewCell: StatusTableViewCell {
         btn.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
         return btn
     }()
-    private lazy var forwardLabel:UILabel = {
-        let label = UILabel.createLabel(textColor: UIColor.darkGrayColor(), fontSize: 15.0)
+    private lazy var forwardLabel:KILabel = {
+//        let label = UILabel.createLabel(textColor: UIColor.darkGrayColor(), fontSize: 15.0)
+        let label = KILabel()
+        label.textColor = UIColor.darkGrayColor()
+        label.font = UIFont.systemFontOfSize(15)
         label.numberOfLines = 0
         label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.size.width - 20
         return label
