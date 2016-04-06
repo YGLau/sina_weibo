@@ -15,6 +15,8 @@
 		A4150E421CB4B4A000B8C213 /* EmoticonTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4150E3D1CB4B4A000B8C213 /* EmoticonTextAttachment.swift */; };
 		A4150E431CB4B4A000B8C213 /* EmoticonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4150E3E1CB4B4A000B8C213 /* EmoticonViewController.swift */; };
 		A4150E441CB4B4A000B8C213 /* UITextView+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4150E3F1CB4B4A000B8C213 /* UITextView+Category.swift */; };
+		A4150E871CB4F66F00B8C213 /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4150E851CB4F66F00B8C213 /* PhotoSelectorViewController.swift */; };
+		A4150E881CB4F66F00B8C213 /* UIImage+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4150E861CB4F66F00B8C213 /* UIImage+Category.swift */; };
 		A425B3731CA3D43D00584784 /* QRCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */; };
 		A425B3751CA3D9A100584784 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A425B3741CA3D9A100584784 /* QRCodeViewController.swift */; };
 		A42BE7551CA617FB00A93EB1 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */; };
@@ -87,6 +89,8 @@
 		A4150E3D1CB4B4A000B8C213 /* EmoticonTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonTextAttachment.swift; sourceTree = "<group>"; };
 		A4150E3E1CB4B4A000B8C213 /* EmoticonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonViewController.swift; sourceTree = "<group>"; };
 		A4150E3F1CB4B4A000B8C213 /* UITextView+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Category.swift"; sourceTree = "<group>"; };
+		A4150E851CB4F66F00B8C213 /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
+		A4150E861CB4F66F00B8C213 /* UIImage+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Category.swift"; sourceTree = "<group>"; };
 		A425B3721CA3D43D00584784 /* QRCodeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCodeViewController.storyboard; sourceTree = "<group>"; };
 		A425B3741CA3D9A100584784 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 		A408D87B1CB24D1300B534BB /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				A4150E841CB4F66F00B8C213 /* PhotoSelectView */,
 				A4150E3A1CB4B4A000B8C213 /* EmoticonView */,
 				A408D87C1CB24D3000B534BB /* ComposeViewController.swift */,
 			);
@@ -197,6 +202,16 @@
 				A4150E3F1CB4B4A000B8C213 /* UITextView+Category.swift */,
 			);
 			path = EmoticonView;
+			sourceTree = "<group>";
+		};
+		A4150E841CB4F66F00B8C213 /* PhotoSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				A4150E851CB4F66F00B8C213 /* PhotoSelectorViewController.swift */,
+				A4150E861CB4F66F00B8C213 /* UIImage+Category.swift */,
+			);
+			name = PhotoSelectView;
+			path = PhotoSelectViewController;
 			sourceTree = "<group>";
 		};
 		A425B3711CA3D41000584784 /* QRCode */ = {
@@ -611,6 +626,7 @@
 				A4DA72BE1CAE89AE0088F382 /* StatusBottomBarView.swift in Sources */,
 				A47881201CA3879D005D3193 /* PopoverViewController.swift in Sources */,
 				A451712F1CA8C43C0022D3D2 /* NewFeatureViewController.swift in Sources */,
+				A4150E881CB4F66F00B8C213 /* UIImage+Category.swift in Sources */,
 				A4150E441CB4B4A000B8C213 /* UITextView+Category.swift in Sources */,
 				A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */,
 				A451EA2F1CA246ED009320F0 /* BaseTableViewController.swift in Sources */,
@@ -636,6 +652,7 @@
 				A4AB98AB1CA685B600F81328 /* String+category.swift in Sources */,
 				A42DF67F1CAFDE1800909E6B /* HomeRefreshControl.swift in Sources */,
 				A44D93431CAA7AAB00419720 /* UILabel+Category.swift in Sources */,
+				A4150E871CB4F66F00B8C213 /* PhotoSelectorViewController.swift in Sources */,
 				A44BF7B41CA51C5A004595FC /* TestViewController.swift in Sources */,
 				A44D93451CAA7D9500419720 /* UIButton+Category.swift in Sources */,
 				A408D87D1CB24D3000B534BB /* ComposeViewController.swift in Sources */,

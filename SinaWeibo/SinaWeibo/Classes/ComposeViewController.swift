@@ -10,6 +10,9 @@ import UIKit
 import SVProgressHUD
 
 class ComposeViewController: UIViewController {
+    
+        /// 保存图片选择器的高度
+    var photoViewHeightCons: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,12 +21,16 @@ class ComposeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyBoardDidChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
         
         addChildViewController(emojiVC)
+        addChildViewController(photoPickerVC)
         
         // 1.初始化导航条
         setupNav()
         
         // 2.初始化textView
         setupInputView()
+        
+        // 3.初始化图片选择控制器
+        setupPictureView()
         
         // 3.初始化导航条
         setupToolBar()
@@ -53,7 +60,10 @@ class ComposeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        textView.becomeFirstResponder()
+        if photoViewHeightCons?.constant == 0 {
+            
+            textView.becomeFirstResponder()
+        }
         
     }
     
@@ -126,6 +136,20 @@ class ComposeViewController: UIViewController {
         placeholderLabel.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: textView, size: nil, offset: CGPoint(x: 5, y: 7))
         
     }
+    
+    /**
+     初始化图片选择控制器
+     */
+    private func setupPictureView() {
+        // 1.添加
+        view.insertSubview(photoPickerVC.view, belowSubview: toolBar)
+        // 2.布局
+        let width = UIScreen.mainScreen().bounds.width
+        let height: CGFloat = 0
+        let cons = photoPickerVC.view.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSize(width: width, height: height))
+        
+        photoViewHeightCons = photoPickerVC.view.xmg_Constraint(cons, attribute: NSLayoutAttribute.Height)
+    }
     /**
      设置底部工具条
      */
@@ -140,11 +164,16 @@ class ComposeViewController: UIViewController {
     }
     // MARK: - 底部工具条按钮点击监听
     func selectPicture() {
-        print(#function)
+//        print(#function)
+        // 退出键盘
+        textView.resignFirstResponder()
+        // 改变高度
+        photoViewHeightCons?.constant = UIScreen.mainScreen().bounds.height * 0.6
     }
     
     func inputEmoticon() {
         //        print(#function)
+        photoViewHeightCons?.constant = 0
         // 关闭键盘
         textView.resignFirstResponder()
         
@@ -203,10 +232,11 @@ class ComposeViewController: UIViewController {
         
         return tb
     }()
-    
+    // 表情控制器
     private lazy var emojiVC: EmoticonViewController = EmoticonViewController { [unowned self] (emoticon) in
         self.textView.insertEmoticon(emoticon)
     }
+    private lazy var photoPickerVC: PhotoSelectorViewController = PhotoSelectorViewController()
     
     
 
