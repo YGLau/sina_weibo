@@ -16,7 +16,8 @@ class ComposeViewController: UIViewController {
         
         // 注册通知监听键盘的弹出或隐藏
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyBoardDidChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
-        // UIKeyboardWillChangeFrameNotification
+        
+        addChildViewController(emojiVC)
         
         // 1.初始化导航条
         setupNav()
@@ -39,19 +40,21 @@ class ComposeViewController: UIViewController {
         // 拿到键盘最终frame
         let frame = notification.userInfo!["UIKeyboardFrameEndUserInfoKey"]!.CGRectValue
         let duration = notification.userInfo!["UIKeyboardAnimationDurationUserInfoKey"]!.doubleValue
+        let curve = notification.userInfo!["UIKeyboardAnimationCurveUserInfoKey"]!.integerValue
         
         
         let height = UIScreen.mainScreen().bounds.size.height
         UIView.animateWithDuration(duration) {
+            UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
             self.toolBar.transform = CGAffineTransformMakeTranslation(0, frame.origin.y - height)
         }
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        // 叫出键盘
-//        textView.becomeFirstResponder()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        textView.becomeFirstResponder()
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -135,6 +138,20 @@ class ComposeViewController: UIViewController {
         toolBar.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSize(width: w, height: 44))
         
     }
+    // MARK: - 底部工具条按钮点击监听
+    func selectPicture() {
+        print(#function)
+    }
+    
+    func inputEmoticon() {
+        //        print(#function)
+        // 关闭键盘
+        textView.resignFirstResponder()
+        
+        textView.inputView = (textView.inputView == nil) ? emojiVC.view : nil
+        // 再召唤一下
+        textView.becomeFirstResponder()
+    }
     
     //MARK: - 懒加载
     private lazy var textView: UITextView = {
@@ -187,13 +204,11 @@ class ComposeViewController: UIViewController {
         return tb
     }()
     
-    func selectPicture() {
-        print(#function)
+    private lazy var emojiVC: EmoticonViewController = EmoticonViewController { [unowned self] (emoticon) in
+        self.textView.insertEmoticon(emoticon)
     }
     
-    func inputEmoticon() {
-        print(#function)
-    }
+    
 
 }
 //MARK: - TextView代理方法
