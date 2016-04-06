@@ -14,6 +14,9 @@ class ComposeViewController: UIViewController {
     
         /// 保存图片选择器的高度
     var photoViewHeightCons: NSLayoutConstraint?
+    
+    var tooBarbottomCons: NSLayoutConstraint?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +53,12 @@ class ComposeViewController: UIViewController {
         let duration = notification.userInfo!["UIKeyboardAnimationDurationUserInfoKey"]!.doubleValue
         let curve = notification.userInfo!["UIKeyboardAnimationCurveUserInfoKey"]!.integerValue
         
-        
         let height = UIScreen.mainScreen().bounds.size.height
+        tooBarbottomCons?.constant = frame.origin.y - height
         UIView.animateWithDuration(duration) {
+            
             UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
-            self.toolBar.transform = CGAffineTransformMakeTranslation(0, frame.origin.y - height)
+            self.view.layoutIfNeeded()
         }
         
     }
@@ -157,9 +161,12 @@ class ComposeViewController: UIViewController {
         
         // 1.添加子控件
         view.addSubview(toolBar)
+        view.addSubview(tiplabel)
         // 2.布局
         let w = UIScreen.mainScreen().bounds.width
-        toolBar.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSize(width: w, height: 44))
+        let cons = toolBar.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSize(width: w, height: 44))
+        tooBarbottomCons = toolBar.xmg_Constraint(cons, attribute: NSLayoutAttribute.Bottom)
+        tiplabel.xmg_AlignVertical(type: XMG_AlignType.TopRight, referView: toolBar, size: nil, offset: CGPoint(x: -10, y: -10))
         
     }
     // MARK: - 底部工具条按钮点击监听
@@ -186,7 +193,7 @@ class ComposeViewController: UIViewController {
     private lazy var textView: UITextView = {
         
         let tv = UITextView()
-        tv.font = UIFont.systemFontOfSize(20)
+        tv.font = UIFont.systemFontOfSize(15)
         tv.delegate = self
         tv.alwaysBounceVertical = true
         tv.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag
@@ -204,6 +211,7 @@ class ComposeViewController: UIViewController {
         /// 工具条
     private lazy var toolBar: UIToolbar = {
         let tb = UIToolbar()
+//        tb.backgroundColor = UIColor.greenColor()
         // 添加item
         var items = [UIBarButtonItem]()
         let itemSettings = [["imageName": "compose_toolbar_picture", "action": "selectPicture"],
@@ -233,6 +241,13 @@ class ComposeViewController: UIViewController {
         
         return tb
     }()
+    
+        /// 提示剩余字数label
+    private lazy var tiplabel: UILabel = {
+        let label = UILabel()
+//        label.backgroundColor = UIColor.greenColor()
+        return label
+        }()
     // 表情控制器
     private lazy var emojiVC: EmoticonViewController = EmoticonViewController { [unowned self] (emoticon) in
         
@@ -244,10 +259,19 @@ class ComposeViewController: UIViewController {
 
 }
 //MARK: - TextView代理方法
+private let maxTipLength = 140
 extension ComposeViewController: UITextViewDelegate {
     
     func textViewDidChange(textView: UITextView) {
         placeholderLabel.hidden = textView.hasText()
         navigationItem.rightBarButtonItem?.enabled = textView.hasText()
+        
+        // 当前输入的长度
+        let count = textView.emoticonAttributedText().characters.count
+        let result = maxTipLength - count
+        tiplabel.textColor = (result > 0) ? UIColor.darkGrayColor() : UIColor.redColor()
+        tiplabel.text = result == maxTipLength ? "" : "\(result)"
+        
+        
     }
 }
