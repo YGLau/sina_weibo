@@ -36,6 +36,62 @@ class EmoticonPackage: NSObject {
     
     static let packageList:[EmoticonPackage] = EmoticonPackage.loadPackage()
     
+    /// 根据传入的字符串, 返回属性字符串
+    class func emoticonString(str: String) -> NSAttributedString? {
+        let strM = NSMutableAttributedString(string: str)
+        do {
+            // 1.创建规则
+            let pattern = "\\[.*?\\]"
+            // 2.创建正则表达式对象
+            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
+            
+            // 3.开始匹配
+            let res = regex.matchesInString(str, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, str.characters.count))
+            
+            // 4.取出结果
+            var count = res.count
+            while count > 0 {
+                // 0.从后面开始取
+                count -= 1
+                let checkingRes = res[count]
+                // 1.拿到匹配到的表情字符串
+                let tempStr = (str as NSString).substringWithRange(checkingRes.range)
+                // 2.根据表情字符串查找对应的表情模型
+                if let emotion = emoticonWithStr(tempStr) {
+                    // 3.根据表情模型生成属性字符串
+                    let attrStr = EmoticonTextAttachment.imageText(emotion, font: UIFont.systemFontOfSize(18))
+                    // 4.添加属性字符串
+                    strM.replaceCharactersInRange(checkingRes.range, withAttributedString: attrStr)
+                }
+                
+            }
+            // 拿到替换之后的属性字符串
+            return strM
+            
+        } catch {
+            print(error)
+            return nil
+        }
+        
+    }
+    
+    class func emoticonWithStr(str: String) -> Emoticon? {
+        var emoticon: Emoticon?
+        for package in EmoticonPackage.packageList {
+//            emoticon = package.emoticons?.filter({ (e) in
+//                return e.chs == str
+//            }).last
+            emoticon = package.emoticons?.filter({ (e) -> Bool in
+                return e.chs == str
+            }).last
+            if emoticon != nil {
+                break
+            }
+        }
+        return emoticon
+        
+    }
+    
     /// 获取所有组的表情数组
     // 浪小花 -> 一组  -> 所有的表情模型(emoticons)
     // 默认 -> 一组  -> 所有的表情模型(emoticons)
@@ -71,16 +127,14 @@ class EmoticonPackage: NSObject {
     
      /// 加载每一组对应的表情
     func loadEmoticon() {
-        let emoticonDict = NSDictionary(contentsOfFile: infoPath("info.plist"))
-        group_name_cn = emoticonDict!["group_name_cn"] as? String
-        let dictArr = emoticonDict!["emoticons"] as! [[String: String]]
+        let emoticonDict = NSDictionary(contentsOfFile: infoPath("info.plist"))!
+        group_name_cn = emoticonDict["group_name_cn"] as? String
+        let dictArr = emoticonDict["emoticons"] as! [[String: String]]
         emoticons = [Emoticon]()
         var index = 0
         
         for dict in dictArr {
-//            emoticons?.append(Emoticon(dict: dict, id: id!))
             if index == 20 {
-//                print("添加删除")
                 emoticons?.append(Emoticon(isRemoveBtn: true))
                 index = 0
             }
@@ -93,7 +147,7 @@ class EmoticonPackage: NSObject {
      追加空白按钮
      */
     func AppendEmptyEmoticons() {
-//        print(emoticons?.count)
+        
         let count = emoticons!.count % 21
         
         for _ in count..<20 {
@@ -138,7 +192,7 @@ class EmoticonPackage: NSObject {
     /**
      获取指定文件的全路径
      */
-    private func infoPath(fileName: String) ->String {
+    func infoPath(fileName: String) ->String {
         
         return (EmoticonPackage.emoticonPath().stringByAppendingPathComponent(id!) as NSString).stringByAppendingPathComponent(fileName)
     }

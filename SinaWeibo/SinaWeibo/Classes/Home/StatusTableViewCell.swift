@@ -37,7 +37,8 @@ class StatusTableViewCell: UITableViewCell {
             // 传值
             topView.status = status
             // 正文
-            contentLabel.text = status?.text
+//            contentLabel.text = status?.text
+            contentLabel.attributedText = EmoticonPackage.emoticonString(status?.text ?? "")
             
             // 设置配图尺寸
             pictureView.status = status?.retweeted_status != nil ? status?.retweeted_status : status
