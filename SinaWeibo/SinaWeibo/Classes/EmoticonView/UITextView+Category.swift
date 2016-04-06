@@ -39,6 +39,8 @@ extension UITextView {
             // 恢复光标所在的位置
             // 两个参数: 第一个是指定光标所在的位置, 第二个参数是选中文本的个数
             self.selectedRange = NSMakeRange(range.location + 1, 0)
+            
+            delegate?.textViewDidChange!(self)
         }
     }
     

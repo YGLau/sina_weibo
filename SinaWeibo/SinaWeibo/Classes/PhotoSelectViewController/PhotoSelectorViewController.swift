@@ -43,7 +43,7 @@ class PhotoSelectorViewController: UIViewController {
     /**
      *  创建一个数组保存当前选中的图片
      */
-    private lazy var pickedPicArr = [UIImage]()
+    lazy var pickedPicArr = [UIImage]()
     
 
 }
@@ -54,7 +54,7 @@ extension PhotoSelectorViewController: UICollectionViewDataSource, Photoselected
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        print(indexPath.item)
+//        print(indexPath.item)
         // 取cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotoCellSelectedIdentifier, forIndexPath: indexPath) as! PhotoselectedCell
         cell.photoselectedCellDelegate = self
