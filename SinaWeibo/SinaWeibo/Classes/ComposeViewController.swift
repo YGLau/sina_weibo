@@ -108,47 +108,19 @@ class ComposeViewController: UIViewController {
     func closeVc() {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    /**
+     发送微博
+     */
     func sendStatus() {
         
-        if let image = photoPickerVC.pickedPicArr.first { // 图文微博
-            let path = "2/statuses/upload.json"
-            let params = ["access_token": UserAccount.loadAccount()!.access_token!, "status": textView.emoticonAttributedText()]
-            NetworkTools.shareNetworkTools().POST(path, parameters: params, constructingBodyWithBlock: { (formData) in
-                
-                // 1.将数据转为二进制
-                let data = UIImagePNGRepresentation(image)
-                
-                // 2.上传数据
-                formData.appendPartWithFileData(data!, name: "pic", fileName: "abc.png", mimeType: "application/octet-stream")
-                
-                }, progress: nil, success: { (_, JSON) in
-                    
-                    print(JSON)
-                    SVProgressHUD.showSuccessWithStatus("发送成功666...!")
-                    self.closeVc()
-                    
-                }, failure: { (_, error) in
-                    
-                    print(error)
-                    SVProgressHUD.showErrorWithStatus("居然发送失败了？")
-            })
-        } else {
-            
-            let path = "2/statuses/update.json"
-            let params = ["access_token": UserAccount.loadAccount()!.access_token!, "status": textView.emoticonAttributedText()]
-            
-            NetworkTools.shareNetworkTools().POST(path, parameters: params, progress: nil, success: { (_, JSON) in
-                
-                //            print(JSON)
-                SVProgressHUD.showSuccessWithStatus("发送成功666...!")
-                self.closeVc()
-                
-            }) { (_, error) in
-                
-                //                print(error)
-                SVProgressHUD.showErrorWithStatus("居然发送失败了？")
-            }
-            
+        let text = textView.emoticonAttributedText()
+        let image = photoPickerVC.pickedPicArr.first
+        NetworkTools.shareNetworkTools().sendStatus(text, image: image, successCallback: { (status) in
+            SVProgressHUD.showSuccessWithStatus("成功666！")
+            self.closeVc()
+            }) { (error) in
+                print(error)
+                SVProgressHUD.showErrorWithStatus("卧槽，失败了！")
         }
         
     }
