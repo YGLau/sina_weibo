@@ -61,8 +61,8 @@ class ComposeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
         if photoViewHeightCons?.constant == 0 {
-            
             textView.becomeFirstResponder()
         }
         
@@ -186,6 +186,7 @@ class ComposeViewController: UIViewController {
     private lazy var textView: UITextView = {
         
         let tv = UITextView()
+        tv.font = UIFont.systemFontOfSize(20)
         tv.delegate = self
         tv.alwaysBounceVertical = true
         tv.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag
@@ -234,6 +235,7 @@ class ComposeViewController: UIViewController {
     }()
     // 表情控制器
     private lazy var emojiVC: EmoticonViewController = EmoticonViewController { [unowned self] (emoticon) in
+        
         self.textView.insertEmoticon(emoticon)
     }
     private lazy var photoPickerVC: PhotoSelectorViewController = PhotoSelectorViewController()

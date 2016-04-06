@@ -34,11 +34,13 @@ class EmoticonPackage: NSObject {
     /// 当前组所有的表情对象
     var emoticons: [Emoticon]?
     
+    static let packageList:[EmoticonPackage] = EmoticonPackage.loadPackage()
+    
     /// 获取所有组的表情数组
     // 浪小花 -> 一组  -> 所有的表情模型(emoticons)
     // 默认 -> 一组  -> 所有的表情模型(emoticons)
     // emoji -> 一组  -> 所有的表情模型(emoticons)
-    class func loadPackage() -> [EmoticonPackage]? {
+    private class func loadPackage() -> [EmoticonPackage] {
         
         var packages = [EmoticonPackage]()
         // 创建最近组
@@ -69,7 +71,7 @@ class EmoticonPackage: NSObject {
     
      /// 加载每一组对应的表情
     func loadEmoticon() {
-        let emoticonDict = NSDictionary(contentsOfFile: infoPath())
+        let emoticonDict = NSDictionary(contentsOfFile: infoPath("info.plist"))
         group_name_cn = emoticonDict!["group_name_cn"] as? String
         let dictArr = emoticonDict!["emoticons"] as! [[String: String]]
         emoticons = [Emoticon]()
@@ -136,9 +138,9 @@ class EmoticonPackage: NSObject {
     /**
      获取指定文件的全路径
      */
-    private func infoPath() ->String {
+    private func infoPath(fileName: String) ->String {
         
-        return (EmoticonPackage.emoticonPath().stringByAppendingPathComponent(id!) as NSString).stringByAppendingPathComponent("info.plist")
+        return (EmoticonPackage.emoticonPath().stringByAppendingPathComponent(id!) as NSString).stringByAppendingPathComponent(fileName)
     }
     
     /// 获取微博表情的主路径

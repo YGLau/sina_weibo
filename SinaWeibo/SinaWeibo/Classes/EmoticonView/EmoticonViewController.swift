@@ -16,6 +16,7 @@ class EmoticonViewController: UIViewController {
     var emoticonDidSelectedCallBack: (emoticon: Emoticon) -> ()
     
     init(callBack: (emoticon: Emoticon) ->()) {
+        
         self.emoticonDidSelectedCallBack = callBack
         super.init(nibName: nil, bundle: nil)
     }
@@ -82,7 +83,7 @@ class EmoticonViewController: UIViewController {
         bar.items = items
         return bar
     }()
-    private lazy var packages: [EmoticonPackage] = EmoticonPackage.loadPackage()!
+    private lazy var packages: [EmoticonPackage] = EmoticonPackage.packageList
     
     func itemClick(item: UIBarButtonItem)  {
         
@@ -139,7 +140,9 @@ class EmoticonCell: UICollectionViewCell {
         didSet{
             // 1.判断是否是图片表情
             if emotion?.chs != nil {
+                
                 emojiBtn.setImage(UIImage(contentsOfFile: emotion!.imagePath!), forState: UIControlState.Normal)
+                
             }else {
                 // 防止重用
                 emojiBtn.setImage(nil, forState: UIControlState.Normal)

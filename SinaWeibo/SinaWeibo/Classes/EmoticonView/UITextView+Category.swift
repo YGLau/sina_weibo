@@ -43,7 +43,9 @@ extension UITextView {
             delegate?.textViewDidChange!(self)
         }
     }
-    
+    /**
+     获取需要发送给服务器的字符串
+     */
     func emoticonAttributedText() -> String {
         var strM = String()
         
@@ -53,6 +55,7 @@ extension UITextView {
             if objc["NSAttachment"] != nil {
                 let attachment = objc["NSAttachment"] as! EmoticonTextAttachment
                 strM += attachment.chs!
+                
             } else {
                 strM += (self.text as NSString).substringWithRange(range)
             }
