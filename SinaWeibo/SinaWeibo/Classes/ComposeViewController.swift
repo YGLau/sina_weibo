@@ -14,18 +14,44 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 注册通知监听键盘的弹出或隐藏
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyBoardDidChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
+        // UIKeyboardWillChangeFrameNotification
+        
         // 1.初始化导航条
         setupNav()
         
         // 2.初始化textView
         setupInputView()
         
+        // 3.初始化导航条
+        setupToolBar()
+        
+    }
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    /**
+    监听键盘frame改变
+     */
+    func keyBoardDidChangeFrame(notification: NSNotification) {
+        // 拿到键盘最终frame
+        let frame = notification.userInfo!["UIKeyboardFrameEndUserInfoKey"]!.CGRectValue
+        let duration = notification.userInfo!["UIKeyboardAnimationDurationUserInfoKey"]!.doubleValue
+        
+        
+        let height = UIScreen.mainScreen().bounds.size.height
+        UIView.animateWithDuration(duration) {
+            self.toolBar.transform = CGAffineTransformMakeTranslation(0, frame.origin.y - height)
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // 叫出键盘
-        textView.becomeFirstResponder()
+//        textView.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -97,12 +123,26 @@ class ComposeViewController: UIViewController {
         placeholderLabel.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: textView, size: nil, offset: CGPoint(x: 5, y: 7))
         
     }
+    /**
+     设置底部工具条
+     */
+    private func setupToolBar() {
+        
+        // 1.添加子控件
+        view.addSubview(toolBar)
+        // 2.布局
+        let w = UIScreen.mainScreen().bounds.width
+        toolBar.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSize(width: w, height: 44))
+        
+    }
     
     //MARK: - 懒加载
     private lazy var textView: UITextView = {
         
         let tv = UITextView()
         tv.delegate = self
+        tv.alwaysBounceVertical = true
+        tv.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag
         
         return tv
     }()
@@ -114,9 +154,49 @@ class ComposeViewController: UIViewController {
         label.text = "分享新鲜事..."
         return label
     }()
+        /// 工具条
+    private lazy var toolBar: UIToolbar = {
+        let tb = UIToolbar()
+        // 添加item
+        var items = [UIBarButtonItem]()
+        let itemSettings = [["imageName": "compose_toolbar_picture", "action": "selectPicture"],
+                            
+                            ["imageName": "compose_mentionbutton_background"],
+                            
+                            ["imageName": "compose_trendbutton_background"],
+                            
+                            ["imageName": "compose_emoticonbutton_background", "action": "inputEmoticon"],
+                            
+                            ["imageName": "compose_addbutton_background"]]
+        for dict in itemSettings {
+            
+            let btn = UIButton()
+            btn.setImage(UIImage(named: dict["imageName"]!), forState: UIControlState.Normal)
+            btn.setImage(UIImage(named: dict["imageName"]! + "_highlighted"), forState: UIControlState.Highlighted)
+            btn.sizeToFit()
+            if dict["action"] != nil {
+                btn.addTarget(self, action: Selector(dict["action"]!), forControlEvents: UIControlEvents.TouchUpInside)
+            }
+            let item = UIBarButtonItem(customView: btn)
+            items.append(item)
+            items.append(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil))
+        }
+        items.removeLast()
+        tb.items = items
+        
+        return tb
+    }()
+    
+    func selectPicture() {
+        print(#function)
+    }
+    
+    func inputEmoticon() {
+        print(#function)
+    }
 
 }
-
+//MARK: - TextView代理方法
 extension ComposeViewController: UITextViewDelegate {
     
     func textViewDidChange(textView: UITextView) {
