@@ -40,6 +40,16 @@
 		A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451EA2B1CA2335F009320F0 /* NullViewController.swift */; };
 		A451EA2F1CA246ED009320F0 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451EA2E1CA246ED009320F0 /* BaseTableViewController.swift */; };
 		A451EA311CA247DE009320F0 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451EA301CA247DE009320F0 /* VisitorView.swift */; };
+		A47388AD1CB7FE1200BE21B7 /* StatusDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47388AC1CB7FE1200BE21B7 /* StatusDAO.swift */; };
+		A47388BD1CB7FE4100BE21B7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A47388B01CB7FE4100BE21B7 /* FMDatabase.m */; };
+		A47388BE1CB7FE4100BE21B7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A47388B21CB7FE4100BE21B7 /* FMDatabaseAdditions.m */; };
+		A47388BF1CB7FE4100BE21B7 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A47388B41CB7FE4100BE21B7 /* FMDatabasePool.m */; };
+		A47388C01CB7FE4100BE21B7 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A47388B61CB7FE4100BE21B7 /* FMDatabaseQueue.m */; };
+		A47388C11CB7FE4100BE21B7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A47388B91CB7FE4100BE21B7 /* FMResultSet.m */; };
+		A47388C21CB7FE4100BE21B7 /* FMDatabaseAdditionsVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47388BB1CB7FE4100BE21B7 /* FMDatabaseAdditionsVariadic.swift */; };
+		A47388C31CB7FE4100BE21B7 /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47388BC1CB7FE4100BE21B7 /* FMDatabaseVariadic.swift */; };
+		A47388C61CB7FF1A00BE21B7 /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47388C51CB7FF1A00BE21B7 /* SQLiteManager.swift */; };
+		A47388C81CB801DE00BE21B7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A47388C71CB801DE00BE21B7 /* libsqlite3.tbd */; };
 		A478811E1CA3859E005D3193 /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A478811D1CA3859E005D3193 /* PopoverViewController.storyboard */; };
 		A47881201CA3879D005D3193 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478811F1CA3879D005D3193 /* PopoverViewController.swift */; };
 		A47881221CA38E30005D3193 /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47881211CA38E30005D3193 /* PopoverPresentationController.swift */; };
@@ -114,6 +124,23 @@
 		A451EA2B1CA2335F009320F0 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 		A451EA2E1CA246ED009320F0 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewController.swift; path = ../Common/BaseTableViewController.swift; sourceTree = "<group>"; };
 		A451EA301CA247DE009320F0 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisitorView.swift; path = ../Common/VisitorView.swift; sourceTree = "<group>"; };
+		A47388AC1CB7FE1200BE21B7 /* StatusDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusDAO.swift; sourceTree = "<group>"; };
+		A47388AF1CB7FE4100BE21B7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		A47388B01CB7FE4100BE21B7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		A47388B11CB7FE4100BE21B7 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		A47388B21CB7FE4100BE21B7 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		A47388B31CB7FE4100BE21B7 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		A47388B41CB7FE4100BE21B7 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		A47388B51CB7FE4100BE21B7 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		A47388B61CB7FE4100BE21B7 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		A47388B71CB7FE4100BE21B7 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		A47388B81CB7FE4100BE21B7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		A47388B91CB7FE4100BE21B7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		A47388BB1CB7FE4100BE21B7 /* FMDatabaseAdditionsVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseAdditionsVariadic.swift; sourceTree = "<group>"; };
+		A47388BC1CB7FE4100BE21B7 /* FMDatabaseVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseVariadic.swift; sourceTree = "<group>"; };
+		A47388C41CB7FE7000BE21B7 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
+		A47388C51CB7FF1A00BE21B7 /* SQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
+		A47388C71CB801DE00BE21B7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A478811D1CA3859E005D3193 /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
 		A478811F1CA3879D005D3193 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		A47881211CA38E30005D3193 /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
@@ -152,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47388C81CB801DE00BE21B7 /* libsqlite3.tbd in Frameworks */,
 				32AEB2B3BEF622AB3FDFD12B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +271,35 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		A47388AE1CB7FE4100BE21B7 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				A47388C51CB7FF1A00BE21B7 /* SQLiteManager.swift */,
+				A47388BA1CB7FE4100BE21B7 /* Swift extensions */,
+				A47388AF1CB7FE4100BE21B7 /* FMDatabase.h */,
+				A47388B01CB7FE4100BE21B7 /* FMDatabase.m */,
+				A47388B11CB7FE4100BE21B7 /* FMDatabaseAdditions.h */,
+				A47388B21CB7FE4100BE21B7 /* FMDatabaseAdditions.m */,
+				A47388B31CB7FE4100BE21B7 /* FMDatabasePool.h */,
+				A47388B41CB7FE4100BE21B7 /* FMDatabasePool.m */,
+				A47388B51CB7FE4100BE21B7 /* FMDatabaseQueue.h */,
+				A47388B61CB7FE4100BE21B7 /* FMDatabaseQueue.m */,
+				A47388B71CB7FE4100BE21B7 /* FMDB.h */,
+				A47388B81CB7FE4100BE21B7 /* FMResultSet.h */,
+				A47388B91CB7FE4100BE21B7 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		A47388BA1CB7FE4100BE21B7 /* Swift extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A47388BB1CB7FE4100BE21B7 /* FMDatabaseAdditionsVariadic.swift */,
+				A47388BC1CB7FE4100BE21B7 /* FMDatabaseVariadic.swift */,
+			);
+			path = "Swift extensions";
+			sourceTree = "<group>";
+		};
 		A478811C1CA38565005D3193 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +336,7 @@
 		A49C5BC71CA136B900989FED /* SinaWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				A47388C41CB7FE7000BE21B7 /* Weibo-Bridge.h */,
 				A49C5BC81CA136B900989FED /* AppDelegate.swift */,
 				A49C5BF61CA13CD600989FED /* Classes */,
 				A49C5BCF1CA136B900989FED /* Assets.xcassets */,
@@ -358,6 +416,7 @@
 				A44D93381CAA595900419720 /* User.swift */,
 				A42DF67E1CAFDE1800909E6B /* HomeRefreshControl.swift */,
 				A42DF6801CAFDE3600909E6B /* HomeRefreshView.xib */,
+				A47388AC1CB7FE1200BE21B7 /* StatusDAO.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -392,6 +451,7 @@
 		A49C5BFD1CA13CD600989FED /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				A47388AE1CB7FE4100BE21B7 /* fmdb */,
 				A4E6DEC31CA26CB9008B3E45 /* UIView+AutoLayout.swift */,
 				A42BE7541CA617FA00A93EB1 /* NetworkTools.swift */,
 				A4AB98AA1CA685B600F81328 /* String+category.swift */,
@@ -413,6 +473,7 @@
 		A70DD2F88F404FB1743E36C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A47388C71CB801DE00BE21B7 /* libsqlite3.tbd */,
 				AC268968C1BE63ED2845075C /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -621,15 +682,21 @@
 				A4DB718F1CACC27000557806 /* NSDate+Category.swift in Sources */,
 				A44D93371CAA304100419720 /* Status.swift in Sources */,
 				A4150E401CB4B4A000B8C213 /* EmoticonPackage.swift in Sources */,
+				A47388C11CB7FE4100BE21B7 /* FMResultSet.m in Sources */,
 				A49C5C071CA13F4C00989FED /* HomeTableViewController.swift in Sources */,
+				A47388C31CB7FE4100BE21B7 /* FMDatabaseVariadic.swift in Sources */,
 				A425B3751CA3D9A100584784 /* QRCodeViewController.swift in Sources */,
 				A4DA72BE1CAE89AE0088F382 /* StatusBottomBarView.swift in Sources */,
 				A47881201CA3879D005D3193 /* PopoverViewController.swift in Sources */,
 				A451712F1CA8C43C0022D3D2 /* NewFeatureViewController.swift in Sources */,
 				A4150E881CB4F66F00B8C213 /* UIImage+Category.swift in Sources */,
+				A47388BE1CB7FE4100BE21B7 /* FMDatabaseAdditions.m in Sources */,
 				A4150E441CB4B4A000B8C213 /* UITextView+Category.swift in Sources */,
+				A47388C01CB7FE4100BE21B7 /* FMDatabaseQueue.m in Sources */,
 				A44100781CA2B5BC0076C374 /* titleButton.swift in Sources */,
 				A451EA2F1CA246ED009320F0 /* BaseTableViewController.swift in Sources */,
+				A47388BD1CB7FE4100BE21B7 /* FMDatabase.m in Sources */,
+				A47388C21CB7FE4100BE21B7 /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				A4DA72C21CAE8DB90088F382 /* StatusPictureView.swift in Sources */,
 				A44BF7B21CA4E8A5004595FC /* QRCodeCardViewController.swift in Sources */,
 				A4150E421CB4B4A000B8C213 /* EmoticonTextAttachment.swift in Sources */,
@@ -646,10 +713,12 @@
 				A4CB75391CA533AE005EFC5A /* OAuthViewController.swift in Sources */,
 				A44D933B1CAA5ECA00419720 /* StatusTableViewCell.swift in Sources */,
 				A47881241CA3C3C0005D3193 /* PopoverAnimator.swift in Sources */,
+				A47388C61CB7FF1A00BE21B7 /* SQLiteManager.swift in Sources */,
 				A4E6DEC61CA294C5008B3E45 /* UIBarButtonItem+category.swift in Sources */,
 				A49C5BC91CA136B900989FED /* AppDelegate.swift in Sources */,
 				A451EA2D1CA2335F009320F0 /* NullViewController.swift in Sources */,
 				A4AB98AB1CA685B600F81328 /* String+category.swift in Sources */,
+				A47388BF1CB7FE4100BE21B7 /* FMDatabasePool.m in Sources */,
 				A42DF67F1CAFDE1800909E6B /* HomeRefreshControl.swift in Sources */,
 				A44D93431CAA7AAB00419720 /* UILabel+Category.swift in Sources */,
 				A4150E871CB4F66F00B8C213 /* PhotoSelectorViewController.swift in Sources */,
@@ -658,6 +727,7 @@
 				A408D87D1CB24D3000B534BB /* ComposeViewController.swift in Sources */,
 				A47881221CA38E30005D3193 /* PopoverPresentationController.swift in Sources */,
 				A4150E431CB4B4A000B8C213 /* EmoticonViewController.swift in Sources */,
+				A47388AD1CB7FE1200BE21B7 /* StatusDAO.swift in Sources */,
 				A42DF67B1CAFA97A00909E6B /* StatusForwardTableViewCell.swift in Sources */,
 				A4AB98A91CA678B800F81328 /* UserAccount.swift in Sources */,
 				A42DF67D1CAFB30100909E6B /* StatusNormalTableViewCell.swift in Sources */,
@@ -790,6 +860,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SinaWeibo/Weibo-Bridge.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -805,6 +876,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liu.SinaWeibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SinaWeibo/Weibo-Bridge.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
