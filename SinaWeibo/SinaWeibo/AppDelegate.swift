@@ -16,6 +16,11 @@ let YGSwitchRootViewControllerKey = "YGSwitchRootViewControllerKey"
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func applicationDidEnterBackground(application: UIApplication) {
+        // 清空过期数据
+        StatusDAO.cleanStatuses()
+    }
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
