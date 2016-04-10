@@ -93,40 +93,30 @@ class Status: NSObject {
     {
         return retweeted_status != nil ? retweeted_status?.storedLargePicURLs : storedLargePicURLs
     }
-    
     /**
-     *  加载微博数据
+     加载微博数据
      */
-    class func loadStatuses(since_id: Int, max_id: Int, finished: (models:[Status]?, error:NSError?) ->()) {
-        let path = "2/statuses/home_timeline.json"
-        var params = ["access_token":UserAccount.loadAccount()!.access_token!]
+    class func loadStatuses(since_id: Int, max_id: Int, finished: (models: [Status]?, error: NSError?) -> ()) {
         
-        // 下拉刷新
-        if since_id > 0 {
-            params["since_id"] = "\(since_id)"
-        }
-        
-        // 上拉刷新
-        if max_id > 0 {
-            params["max_id"] = "\(max_id - 1)"
-        }
-        
-        NetworkTools.shareNetworkTools().GET(path, parameters: params, progress: nil, success: { (_, JSON) in
-//            print(JSON)
-            // 1.取出statuses key对应的数组 (存储的都是字典)
-            // 2.遍历数组, 将字典转换为模型
-            let models = dict2Model(JSON!["statuses"] as! [[String: AnyObject]])
-            // 3.缓存微博配图
-            cacheStatusImage(models, finished: finished)
+        StatusDAO.loadStatuses(since_id, max_id: max_id) { (array, error) in
             
-            }) { (_, error) in
-                print(error)
+            if array == nil {
                 finished(models: nil, error: error)
-                
+                return
+            }
+            
+            if error != nil {
+                finished(models: nil, error: error)
+                return
+            }
+            // 字典转模型
+            let models = dict2Model(array!)
+            
+            // 缓存微博配图
+            cacheStatusImage(models, finished: finished)
         }
-        
-        
     }
+
     /**
      缓存配图
      */
